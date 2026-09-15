@@ -26,6 +26,8 @@ header{
     display:flex;
     justify-content:space-between;
     align-items:center;
+    gap:15px;
+    flex-wrap:wrap;
 }
 
 .logo{
@@ -33,15 +35,21 @@ header{
     font-weight:bold;
 }
 
+.header-right{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
 .header-right a{
     color:white;
     text-decoration:none;
-    margin-left:15px;
+    font-weight:bold;
 }
 
 .container{
     width:92%;
-    max-width:1100px;
+    max-width:1150px;
     margin:25px auto;
 }
 
@@ -58,6 +66,44 @@ header{
     margin-top:5px;
 }
 
+
+/* =========================
+   DASHBOARD STATS
+========================= */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+    margin-bottom:22px;
+}
+
+.stat-card{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+
+.stat-icon{
+    font-size:30px;
+    margin-bottom:8px;
+}
+
+.stat-card h3{
+    font-size:25px;
+    margin-bottom:4px;
+}
+
+.stat-card p{
+    color:#666;
+}
+
+
+/* =========================
+   CARD
+========================= */
+
 .card{
     background:white;
     padding:22px;
@@ -69,6 +115,11 @@ header{
 .card h2{
     margin-bottom:18px;
 }
+
+
+/* =========================
+   FORM
+========================= */
 
 .form-grid{
     display:grid;
@@ -112,6 +163,11 @@ textarea{
     resize:vertical;
 }
 
+
+/* =========================
+   DISCOUNT
+========================= */
+
 .discount-box{
     background:#f7faff;
     padding:15px;
@@ -134,6 +190,11 @@ textarea{
     display:none;
 }
 
+
+/* =========================
+   IMAGE
+========================= */
+
 .image-preview{
     width:120px;
     height:120px;
@@ -153,6 +214,11 @@ textarea{
     object-fit:cover;
 }
 
+
+/* =========================
+   BUTTONS
+========================= */
+
 .submit-btn{
     width:100%;
     padding:14px;
@@ -169,6 +235,24 @@ textarea{
     background:#1765df;
 }
 
+.cancel-btn{
+    display:none;
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    background:#777;
+    color:white;
+    border:0;
+    border-radius:6px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+
+/* =========================
+   MESSAGE
+========================= */
+
 .message{
     display:none;
     padding:12px;
@@ -178,6 +262,11 @@ textarea{
     color:#147a14;
     font-weight:bold;
 }
+
+
+/* =========================
+   PRODUCTS
+========================= */
 
 .products-list{
     display:grid;
@@ -189,12 +278,26 @@ textarea{
     border:1px solid #eee;
     border-radius:8px;
     padding:15px;
+    background:white;
 }
 
-.seller-product-icon{
-    font-size:50px;
-    text-align:center;
-    margin-bottom:10px;
+.seller-product-image{
+    width:100%;
+    height:150px;
+    background:#f4f4f4;
+    border-radius:7px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    font-size:55px;
+    margin-bottom:12px;
+}
+
+.seller-product-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
 }
 
 .seller-product h3{
@@ -204,27 +307,76 @@ textarea{
 .product-price{
     font-weight:bold;
     font-size:18px;
+    margin-top:5px;
 }
 
+.old-price{
+    color:#888;
+    text-decoration:line-through;
+    font-size:14px;
+    margin-top:5px;
+}
+
+.category-text{
+    color:#2874f0;
+    font-size:14px;
+    margin:5px 0;
+}
+
+.stock-text{
+    margin-top:7px;
+}
+
+.edit-btn,
 .delete-btn{
     margin-top:10px;
     width:100%;
-    padding:8px;
+    padding:9px;
     border:0;
     border-radius:5px;
-    background:#e53935;
     color:white;
     cursor:pointer;
+    font-weight:bold;
+}
+
+.edit-btn{
+    background:#ff9800;
+}
+
+.edit-btn:hover{
+    background:#e68900;
+}
+
+.delete-btn{
+    background:#e53935;
+}
+
+.delete-btn:hover{
+    background:#c62828;
+}
+
+.empty{
+    color:#777;
+    padding:10px 0;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:800px){
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
 }
 
 @media(max-width:650px){
 
     header{
         padding:15px 4%;
-    }
-
-    .header-right{
-        font-size:13px;
     }
 
     .container{
@@ -239,11 +391,30 @@ textarea{
         grid-column:auto;
     }
 
+    .stats{
+        grid-template-columns:1fr 1fr;
+        gap:10px;
+    }
+
+    .stat-card{
+        padding:15px;
+    }
+
+    .stat-card h3{
+        font-size:21px;
+    }
+
+    .header-right{
+        font-size:13px;
+    }
+
 }
 </style>
 </head>
 
+
 <body>
+
 
 <header>
 
@@ -261,6 +432,7 @@ textarea{
 
 <div class="container">
 
+
     <div class="dashboard-title">
 
         <h1>Seller Dashboard</h1>
@@ -272,14 +444,96 @@ textarea{
     </div>
 
 
+    <!-- =========================
+         STATS
+    ========================== -->
+
+    <div class="stats">
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🛍️
+            </div>
+
+            <h3 id="totalProducts">
+                0
+            </h3>
+
+            <p>
+                Total Products
+            </p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                📦
+            </div>
+
+            <h3 id="totalStock">
+                0
+            </h3>
+
+            <p>
+                Total Stock
+            </p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                💰
+            </div>
+
+            <h3 id="totalSales">
+                ₹0
+            </h3>
+
+            <p>
+                Total Sales
+            </p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🛒
+            </div>
+
+            <h3 id="totalOrders">
+                0
+            </h3>
+
+            <p>
+                Total Orders
+            </p>
+
+        </div>
+
+    </div>
+
+
     <div id="message" class="message">
         Product added successfully!
     </div>
 
 
+    <!-- =========================
+         ADD / EDIT PRODUCT
+    ========================== -->
+
     <div class="card">
 
-        <h2>➕ Add New Product</h2>
+        <h2 id="formTitle">
+            ➕ Add New Product
+        </h2>
 
 
         <form id="productForm">
@@ -595,16 +849,29 @@ textarea{
                 </div>
 
 
+                <!-- SUBMIT -->
+
                 <div class="form-group full">
 
                     <button
                         type="submit"
+                        id="submitBtn"
                         class="submit-btn"
                     >
                         ➕ Add Product
                     </button>
 
+                    <button
+                        type="button"
+                        id="cancelBtn"
+                        class="cancel-btn"
+                        onclick="cancelEdit()"
+                    >
+                        Cancel Edit
+                    </button>
+
                 </div>
+
 
             </div>
 
@@ -613,11 +880,15 @@ textarea{
     </div>
 
 
-    <!-- SELLER PRODUCTS -->
+    <!-- =========================
+         MY PRODUCTS
+    ========================== -->
 
     <div class="card">
 
-        <h2>📦 My Products</h2>
+        <h2>
+            📦 My Products
+        </h2>
 
         <div
             id="sellerProducts"
@@ -625,6 +896,7 @@ textarea{
         ></div>
 
     </div>
+
 
 </div>
 
@@ -752,20 +1024,25 @@ const subcategories = {
 
 
 /* ==========================================
-   CATEGORY → SUBCATEGORY
+   EDIT MODE
 ========================================== */
 
-function updateSubcategories(){
+let editingProductId = null;
+
+let selectedImage = "";
+
+
+/* ==========================================
+   SUBCATEGORY
+========================================== */
+
+function updateSubcategories(selectedValue=""){
 
     const category =
-        document.getElementById(
-            "category"
-        ).value;
+        document.getElementById("category").value;
 
     const select =
-        document.getElementById(
-            "subcategory"
-        );
+        document.getElementById("subcategory");
 
     select.innerHTML =
         '<option value="">Select Subcategory</option>';
@@ -776,8 +1053,7 @@ function updateSubcategories(){
     }
 
 
-    subcategories[category]
-    .forEach(item => {
+    subcategories[category].forEach(item => {
 
         const option =
             document.createElement("option");
@@ -785,6 +1061,10 @@ function updateSubcategories(){
         option.value = item[0];
 
         option.textContent = item[1];
+
+        if(item[0] === selectedValue){
+            option.selected = true;
+        }
 
         select.appendChild(option);
 
@@ -794,7 +1074,7 @@ function updateSubcategories(){
 
 
 /* ==========================================
-   DISCOUNT YES / NO
+   DISCOUNT
 ========================================== */
 
 function toggleDiscount(show){
@@ -832,9 +1112,6 @@ function toggleDiscount(show){
 /* ==========================================
    IMAGE PREVIEW
 ========================================== */
-
-let selectedImage = "";
-
 
 function previewImage(event){
 
@@ -876,7 +1153,7 @@ function previewImage(event){
 
 
 /* ==========================================
-   ADD PRODUCT
+   FORM SUBMIT
 ========================================== */
 
 document
@@ -967,27 +1244,29 @@ document
             0;
 
 
-        /* PRICE VALIDATION */
+        /* VALIDATION */
+
+        if(!seller){
+            alert("Please enter seller name.");
+            return;
+        }
+
+
+        if(!name){
+            alert("Please enter product name.");
+            return;
+        }
+
 
         if(mrp <= 0){
-
-            alert(
-                "Please enter a valid MRP."
-            );
-
+            alert("Please enter a valid MRP.");
             return;
-
         }
 
 
         if(sellingPrice <= 0){
-
-            alert(
-                "Please enter a valid selling price."
-            );
-
+            alert("Please enter a valid selling price.");
             return;
-
         }
 
 
@@ -1002,7 +1281,16 @@ document
         }
 
 
-        /* DISCOUNT VALIDATION */
+        if(stock < 0){
+
+            alert(
+                "Stock cannot be negative."
+            );
+
+            return;
+
+        }
+
 
         if(discountEnabled){
 
@@ -1022,12 +1310,6 @@ document
         }
 
 
-        /*
-        Seller controls discount.
-        We DO NOT calculate or change it.
-        */
-
-
         let products =
             JSON.parse(
                 localStorage.getItem(
@@ -1035,6 +1317,96 @@ document
                 )
             ) || [];
 
+
+        /* =================================
+           EDIT EXISTING PRODUCT
+        ================================= */
+
+        if(editingProductId !== null){
+
+            const index =
+                products.findIndex(
+                    product =>
+                    String(product.id) ===
+                    String(editingProductId)
+                );
+
+
+            if(index !== -1){
+
+                products[index] = {
+
+                    ...products[index],
+
+                    seller:
+                        seller,
+
+                    name:
+                        name,
+
+                    category:
+                        category,
+
+                    sub:
+                        sub,
+
+                    mrp:
+                        mrp,
+
+                    sellingPrice:
+                        sellingPrice,
+
+                    discountEnabled:
+                        discountEnabled,
+
+                    discountPercent:
+                        discountPercent,
+
+                    stock:
+                        stock,
+
+                    icon:
+                        icon,
+
+                    image:
+                        selectedImage ||
+                        products[index].image ||
+                        "",
+
+                    description:
+                        description
+
+                };
+
+            }
+
+
+            localStorage.setItem(
+                "dealbrand_products",
+                JSON.stringify(products)
+            );
+
+
+            showMessage(
+                "✅ Product updated successfully!"
+            );
+
+
+            cancelEdit();
+
+
+            displaySellerProducts();
+
+            updateStats();
+
+            return;
+
+        }
+
+
+        /* =================================
+           ADD NEW PRODUCT
+        ================================= */
 
         const product = {
 
@@ -1095,43 +1467,17 @@ document
         );
 
 
-        document.getElementById(
-            "message"
-        ).style.display = "block";
+        showMessage(
+            "✅ Product added successfully!"
+        );
 
 
-        document.getElementById(
-            "message"
-        ).innerText =
-        "✅ Product added successfully!";
+        resetForm();
 
-
-        document
-        .getElementById("productForm")
-        .reset();
-
-
-        document.getElementById(
-            "productIcon"
-        ).value = "🛍️";
-
-
-        document.getElementById(
-            "imagePreview"
-        ).innerHTML = "🖼️";
-
-
-        document.getElementById(
-            "discountPercentBox"
-        ).style.display = "none";
-
-
-        selectedImage = "";
-
-
-        updateSubcategories();
 
         displaySellerProducts();
+
+        updateStats();
 
 
         window.scrollTo({
@@ -1144,7 +1490,32 @@ document
 
 
 /* ==========================================
-   SELLER PRODUCT LIST
+   MESSAGE
+========================================== */
+
+function showMessage(text){
+
+    const message =
+        document.getElementById(
+            "message"
+        );
+
+    message.innerText = text;
+
+    message.style.display = "block";
+
+
+    setTimeout(function(){
+
+        message.style.display = "none";
+
+    },3000);
+
+}
+
+
+/* ==========================================
+   DISPLAY PRODUCTS
 ========================================== */
 
 function displaySellerProducts(){
@@ -1167,9 +1538,9 @@ function displaySellerProducts(){
 
         box.innerHTML = `
 
-            <p>
+            <div class="empty">
                 No products added yet.
-            </p>
+            </div>
 
         `;
 
@@ -1182,17 +1553,22 @@ function displaySellerProducts(){
         products
         .map(product => {
 
+
             let discountText = "";
+
 
             if(
                 product.discountEnabled &&
                 product.discountPercent > 0
             ){
 
-                discountText =
-                `<div style="color:green;">
-                    ${product.discountPercent}% OFF
-                </div>`;
+                discountText = `
+
+                    <div style="color:green;font-weight:bold;">
+                        ${product.discountPercent}% OFF
+                    </div>
+
+                `;
 
             }
 
@@ -1201,22 +1577,21 @@ function displaySellerProducts(){
 
             <div class="seller-product">
 
-                <div class="seller-product-icon">
+                <div class="seller-product-image">
 
                     ${
                         product.image
+
                         ?
+
                         `<img
                             src="${product.image}"
-                            style="
-                            width:100%;
-                            height:120px;
-                            object-fit:cover;
-                            border-radius:6px;
-                            "
+                            alt="${product.name}"
                         >`
+
                         :
-                        product.icon
+
+                        product.icon || "🛍️"
                     }
 
                 </div>
@@ -1233,32 +1608,46 @@ function displaySellerProducts(){
                 </p>
 
 
-                <p>
+                <div class="category-text">
+                    ${product.category}
+                    →
+                    ${product.sub}
+                </div>
+
+
+                <div class="old-price">
                     MRP:
-                    ₹${product.mrp.toLocaleString("en-IN")}
-                </p>
+                    ₹${Number(product.mrp || 0)
+                    .toLocaleString("en-IN")}
+                </div>
 
 
                 <div class="product-price">
-
-                    ₹${product.sellingPrice
+                    ₹${Number(product.sellingPrice || 0)
                     .toLocaleString("en-IN")}
-
                 </div>
 
 
                 ${discountText}
 
 
-                <p>
-                    Stock:
-                    ${product.stock}
-                </p>
+                <div class="stock-text">
+                    📦 Stock:
+                    ${Number(product.stock || 0)}
+                </div>
+
+
+                <button
+                    class="edit-btn"
+                    onclick="editProduct('${product.id}')"
+                >
+                    ✏️ Edit Product
+                </button>
 
 
                 <button
                     class="delete-btn"
-                    onclick="deleteProduct(${product.id})"
+                    onclick="deleteProduct('${product.id}')"
                 >
                     🗑️ Delete
                 </button>
@@ -1269,6 +1658,248 @@ function displaySellerProducts(){
 
         })
         .join("");
+
+}
+
+
+/* ==========================================
+   EDIT PRODUCT
+========================================== */
+
+function editProduct(id){
+
+    const products =
+        JSON.parse(
+            localStorage.getItem(
+                "dealbrand_products"
+            )
+        ) || [];
+
+
+    const product =
+        products.find(
+            item =>
+            String(item.id) ===
+            String(id)
+        );
+
+
+    if(!product){
+        alert("Product not found.");
+        return;
+    }
+
+
+    editingProductId =
+        product.id;
+
+
+    document.getElementById(
+        "formTitle"
+    ).innerText =
+        "✏️ Edit Product";
+
+
+    document.getElementById(
+        "submitBtn"
+    ).innerText =
+        "💾 Save Changes";
+
+
+    document.getElementById(
+        "cancelBtn"
+    ).style.display =
+        "block";
+
+
+    document.getElementById(
+        "sellerName"
+    ).value =
+        product.seller || "";
+
+
+    document.getElementById(
+        "productName"
+    ).value =
+        product.name || "";
+
+
+    document.getElementById(
+        "category"
+    ).value =
+        product.category || "";
+
+
+    updateSubcategories(
+        product.sub || ""
+    );
+
+
+    document.getElementById(
+        "mrp"
+    ).value =
+        product.mrp || "";
+
+
+    document.getElementById(
+        "sellingPrice"
+    ).value =
+        product.sellingPrice || "";
+
+
+    document.getElementById(
+        "stock"
+    ).value =
+        product.stock || 0;
+
+
+    document.getElementById(
+        "productIcon"
+    ).value =
+        product.icon || "🛍️";
+
+
+    document.getElementById(
+        "description"
+    ).value =
+        product.description || "";
+
+
+    if(product.discountEnabled){
+
+        document.querySelector(
+            'input[name="discount"][value="yes"]'
+        ).checked = true;
+
+
+        document.getElementById(
+            "discountPercent"
+        ).value =
+            product.discountPercent || "";
+
+
+        toggleDiscount(true);
+
+    }else{
+
+        document.querySelector(
+            'input[name="discount"][value="no"]'
+        ).checked = true;
+
+
+        toggleDiscount(false);
+
+    }
+
+
+    selectedImage =
+        product.image || "";
+
+
+    if(product.image){
+
+        document.getElementById(
+            "imagePreview"
+        ).innerHTML = `
+
+            <img
+                src="${product.image}"
+                alt="Product"
+            >
+
+        `;
+
+    }else{
+
+        document.getElementById(
+            "imagePreview"
+        ).innerHTML =
+            product.icon || "🖼️";
+
+    }
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* ==========================================
+   CANCEL EDIT
+========================================== */
+
+function cancelEdit(){
+
+    editingProductId = null;
+
+    document.getElementById(
+        "formTitle"
+    ).innerText =
+        "➕ Add New Product";
+
+
+    document.getElementById(
+        "submitBtn"
+    ).innerText =
+        "➕ Add Product";
+
+
+    document.getElementById(
+        "cancelBtn"
+    ).style.display =
+        "none";
+
+
+    resetForm();
+
+}
+
+
+/* ==========================================
+   RESET FORM
+========================================== */
+
+function resetForm(){
+
+    document
+    .getElementById("productForm")
+    .reset();
+
+
+    document.getElementById(
+        "productIcon"
+    ).value =
+        "🛍️";
+
+
+    document.getElementById(
+        "imagePreview"
+    ).innerHTML =
+        "🖼️";
+
+
+    document.getElementById(
+        "discountPercentBox"
+    ).style.display =
+        "none";
+
+
+    document.getElementById(
+        "discountPercent"
+    ).required =
+        false;
+
+
+    document.getElementById(
+        "subcategory"
+    ).innerHTML =
+        '<option value="">Select Category First</option>';
+
+
+    selectedImage = "";
 
 }
 
@@ -1301,7 +1932,8 @@ function deleteProduct(id){
     products =
         products.filter(
             product =>
-            product.id != id
+            String(product.id) !==
+            String(id)
         );
 
 
@@ -1311,7 +1943,96 @@ function deleteProduct(id){
     );
 
 
+    if(
+        String(editingProductId) ===
+        String(id)
+    ){
+
+        cancelEdit();
+
+    }
+
+
     displaySellerProducts();
+
+    updateStats();
+
+}
+
+
+/* ==========================================
+   DASHBOARD STATS
+========================================== */
+
+function updateStats(){
+
+    const products =
+        JSON.parse(
+            localStorage.getItem(
+                "dealbrand_products"
+            )
+        ) || [];
+
+
+    /* TOTAL PRODUCTS */
+
+    document.getElementById(
+        "totalProducts"
+    ).innerText =
+        products.length;
+
+
+    /* TOTAL STOCK */
+
+    const stock =
+        products.reduce(
+            (sum,product) =>
+            sum +
+            Number(product.stock || 0),
+            0
+        );
+
+
+    document.getElementById(
+        "totalStock"
+    ).innerText =
+        stock;
+
+
+    /*
+       Sales and Orders will become real
+       after our order/payment backend
+       is connected.
+    */
+
+    const orders =
+        JSON.parse(
+            localStorage.getItem(
+                "dealbrand_orders"
+            )
+        ) || [];
+
+
+    document.getElementById(
+        "totalOrders"
+    ).innerText =
+        orders.length;
+
+
+    const sales =
+        orders.reduce(
+            (sum,order) =>
+            sum +
+            Number(order.total || 0),
+            0
+        );
+
+
+    document.getElementById(
+        "totalSales"
+    ).innerText =
+        "₹" +
+        sales.toLocaleString("en-IN");
 
 }
 
@@ -1321,6 +2042,8 @@ function deleteProduct(id){
 ========================================== */
 
 displaySellerProducts();
+
+updateStats();
 
 </script>
 
