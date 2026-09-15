@@ -4,184 +4,239 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>DealBrand - Product Details</title>
+<title>DealBrand - Products</title>
 
 <style>
 *{
-box-sizing:border-box;
-margin:0;
-padding:0;
-font-family:Arial,sans-serif;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial,sans-serif;
 }
 
 body{
-background:#f5f5f5;
-color:#222;
+    background:#f5f5f5;
+    color:#222;
 }
 
+/* HEADER */
 header{
-background:#131921;
-color:white;
-padding:12px 5%;
-display:flex;
-align-items:center;
-gap:20px;
-flex-wrap:wrap;
+    background:#131921;
+    color:white;
+    padding:12px 5%;
+    display:flex;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
 }
 
 .logo{
-font-size:28px;
-font-weight:bold;
-color:#ffcc00;
-text-decoration:none;
+    font-size:28px;
+    font-weight:bold;
+    color:#ffcc00;
+    text-decoration:none;
 }
 
 .search{
-flex:1;
-min-width:220px;
+    flex:1;
+    min-width:220px;
 }
 
 .search input{
-width:100%;
-padding:12px;
-border:0;
-font-size:15px;
+    width:100%;
+    padding:12px;
+    border:0;
+    border-radius:5px;
+    font-size:15px;
 }
 
 .cart{
-color:white;
-text-decoration:none;
-font-weight:bold;
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
 }
 
+/* NAV */
+.nav{
+    background:#232f3e;
+    padding:12px 5%;
+    display:flex;
+    gap:22px;
+    overflow-x:auto;
+}
+
+.nav a{
+    color:white;
+    text-decoration:none;
+    white-space:nowrap;
+}
+
+/* PAGE */
 .container{
-max-width:1200px;
-margin:25px auto;
-padding:20px;
-background:white;
-border-radius:10px;
+    max-width:1250px;
+    margin:25px auto;
+    padding:0 15px;
+}
+
+.topbar{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    margin-bottom:20px;
+}
+
+.topbar h1{
+    margin-bottom:8px;
+}
+
+.topbar p{
+    color:#666;
+}
+
+/* CATEGORY BUTTONS */
+.categories{
+    display:flex;
+    gap:10px;
+    overflow-x:auto;
+    margin-top:15px;
+}
+
+.categories button{
+    border:1px solid #ddd;
+    background:white;
+    padding:10px 16px;
+    border-radius:20px;
+    cursor:pointer;
+    white-space:nowrap;
+}
+
+.categories button:hover{
+    background:#ffcc00;
+}
+
+/* PRODUCTS */
+.product-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
 }
 
 .product{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:40px;
+    background:white;
+    border-radius:10px;
+    padding:15px;
+    transition:.2s;
+    position:relative;
 }
 
-.image{
-height:450px;
-background:#f1f1f1;
-border-radius:10px;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:170px;
+.product:hover{
+    transform:translateY(-3px);
+    box-shadow:0 5px 18px rgba(0,0,0,.12);
 }
 
-.details h1{
-font-size:30px;
-margin-bottom:15px;
+.product-image{
+    height:190px;
+    background:#f3f3f3;
+    border-radius:8px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:90px;
+    margin-bottom:15px;
+}
+
+.product h3{
+    font-size:17px;
+    margin-bottom:8px;
 }
 
 .rating{
-color:#f39c12;
-margin:12px 0;
+    color:#f39c12;
+    font-size:14px;
+    margin-bottom:8px;
 }
 
 .price{
-font-size:32px;
-font-weight:bold;
-color:#d35400;
-margin:15px 0;
+    font-size:21px;
+    font-weight:bold;
+    color:#d35400;
 }
 
 .old{
-color:#888;
-text-decoration:line-through;
-font-size:17px;
-margin-left:10px;
+    color:#888;
+    text-decoration:line-through;
+    font-size:14px;
+    margin-left:5px;
 }
 
-.offer{
-background:#fff3cd;
-padding:15px;
-border-radius:8px;
-margin:20px 0;
-}
-
-.quantity{
-display:flex;
-align-items:center;
-gap:15px;
-margin:20px 0;
-}
-
-.quantity button{
-padding:8px 15px;
-font-size:20px;
-cursor:pointer;
-}
-
-.quantity span{
-font-size:20px;
+.discount{
+    color:green;
+    font-size:13px;
+    margin:5px 0 12px;
 }
 
 .buttons{
-display:flex;
-gap:15px;
+    display:flex;
+    gap:8px;
 }
 
 .buttons button{
-flex:1;
-padding:15px;
-border:0;
-border-radius:7px;
-font-size:17px;
-font-weight:bold;
-cursor:pointer;
+    flex:1;
+    border:0;
+    padding:10px 5px;
+    border-radius:6px;
+    cursor:pointer;
+    font-weight:bold;
 }
 
-.cartbtn{
-background:#ffd814;
+.add{
+    background:#ffd814;
 }
 
-.buybtn{
-background:#ff9900;
+.buy{
+    background:#ff9900;
 }
 
-.info{
-margin-top:30px;
-border-top:1px solid #ddd;
-padding-top:20px;
+.no-products{
+    background:white;
+    padding:50px;
+    text-align:center;
+    border-radius:10px;
 }
 
-.info h2{
-margin-bottom:15px;
+/* MOBILE */
+@media(max-width:900px){
+    .product-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
 }
 
-.info p{
-margin:10px 0;
-}
+@media(max-width:650px){
+    .product-grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:10px;
+    }
 
-@media(max-width:700px){
+    .product{
+        padding:10px;
+    }
 
-.product{
-grid-template-columns:1fr;
-}
+    .product-image{
+        height:150px;
+        font-size:65px;
+    }
 
-.image{
-height:300px;
-font-size:120px;
-}
+    .product h3{
+        font-size:15px;
+    }
 
-.details h1{
-font-size:24px;
-}
+    .price{
+        font-size:18px;
+    }
 
-.buttons{
-flex-direction:column;
-}
-
+    .buttons{
+        flex-direction:column;
+    }
 }
 </style>
 </head>
@@ -193,129 +248,545 @@ flex-direction:column;
 <a href="index.html" class="logo">DealBrand</a>
 
 <div class="search">
-<input type="text" placeholder="Search DealBrand products...">
+<input
+id="searchInput"
+type="text"
+placeholder="Search DealBrand products..."
+onkeyup="searchProducts()">
 </div>
 
 <a href="cart.html" class="cart">
-🛒 Cart
+🛒 Cart <span id="cartCount">0</span>
 </a>
 
 </header>
 
+<div class="nav">
+<a href="index.html">Home</a>
+<a href="categories.html">Categories</a>
+<a href="products.html">Products</a>
+<a href="wishlist.html">❤️ Wishlist</a>
+<a href="orders.html">My Orders</a>
+</div>
+
 <div class="container">
 
-<div class="product">
+<div class="topbar">
 
-<div class="image">
-📱
-</div>
+<h1 id="pageTitle">All Products</h1>
 
-<div class="details">
+<p id="pageDescription">
+Explore products from DealBrand
+</p>
 
-<h1>Smartphone Pro Max</h1>
+<div class="categories">
 
-<div class="rating">
-★★★★★ 4.5/5
-</div>
-
-<p>1,245 ratings & 320 reviews</p>
-
-<div class="price">
-₹19,999
-<span class="old">₹24,999</span>
-</div>
-
-<div class="offer">
-🔥 <b>Special Deal</b><br>
-Save ₹5,000 on this product.
-</div>
-
-<p>🚚 <b>FREE Delivery</b></p>
-
-<p>✅ In Stock</p>
-
-<div class="quantity">
-
-<b>Quantity:</b>
-
-<button onclick="decrease()">−</button>
-
-<span id="qty">1</span>
-
-<button onclick="increase()">+</button>
-
-</div>
-
-<div class="buttons">
-
-<button class="cartbtn" onclick="addCart()">
-🛒 Add to Cart
-</button>
-
-<button class="buybtn" onclick="buyNow()">
-⚡ Buy Now
-</button>
+<button onclick="showCategory('all')">All</button>
+<button onclick="showCategory('smartphones')">📱 Smartphones</button>
+<button onclick="showCategory('headphones')">🎧 Headphones</button>
+<button onclick="showCategory('tshirts')">👕 T-Shirts</button>
+<button onclick="showCategory('shoes')">👟 Shoes</button>
+<button onclick="showCategory('watches')">⌚ Watches</button>
+<button onclick="showCategory('gaming')">🎮 Gaming</button>
+<button onclick="showCategory('kitchen')">🍳 Kitchen</button>
+<button onclick="showCategory('beauty')">💄 Beauty</button>
 
 </div>
 
 </div>
 
-</div>
-
-<div class="info">
-
-<h2>Product Details</h2>
-
-<p>📱 Premium smartphone with modern design.</p>
-
-<p>⚡ High-performance processor.</p>
-
-<p>📸 Advanced camera system.</p>
-
-<p>🔋 Long-lasting battery.</p>
-
-<p>💾 Multiple storage options.</p>
-
-<p>🛡️ 1 Year Brand Warranty.</p>
-
-</div>
+<div id="productGrid" class="product-grid"></div>
 
 </div>
 
 <script>
 
-let qty = 1;
+/* =========================
+   DEALBRAND PRODUCTS
+========================= */
 
-function increase(){
+const products = [
 
-qty++;
+/* SMARTPHONES */
 
-document.getElementById("qty").innerText = qty;
+{
+name:"Smartphone Pro Max",
+category:"smartphones",
+icon:"📱",
+price:19999,
+old:24999,
+rating:"★★★★★",
+discount:"20% OFF"
+},
+
+{
+name:"Galaxy Style 5G",
+category:"smartphones",
+icon:"📱",
+price:16999,
+old:21999,
+rating:"★★★★☆",
+discount:"23% OFF"
+},
+
+{
+name:"Power Max 5G",
+category:"smartphones",
+icon:"📱",
+price:13999,
+old:17999,
+rating:"★★★★★",
+discount:"22% OFF"
+},
+
+{
+name:"Ultra Camera Phone",
+category:"smartphones",
+icon:"📱",
+price:22999,
+old:28999,
+rating:"★★★★☆",
+discount:"21% OFF"
+},
+
+/* HEADPHONES */
+
+{
+name:"Wireless Bluetooth Headphones",
+category:"headphones",
+icon:"🎧",
+price:1499,
+old:2499,
+rating:"★★★★★",
+discount:"40% OFF"
+},
+
+{
+name:"Premium Bass Headphones",
+category:"headphones",
+icon:"🎧",
+price:1999,
+old:2999,
+rating:"★★★★☆",
+discount:"33% OFF"
+},
+
+{
+name:"Noise Cancelling Headphones",
+category:"headphones",
+icon:"🎧",
+price:2499,
+old:3999,
+rating:"★★★★★",
+discount:"37% OFF"
+},
+
+/* T SHIRTS */
+
+{
+name:"Premium Casual T-Shirt",
+category:"tshirts",
+icon:"👕",
+price:599,
+old:999,
+rating:"★★★★★",
+discount:"40% OFF"
+},
+
+{
+name:"Oversized Black T-Shirt",
+category:"tshirts",
+icon:"👕",
+price:699,
+old:1199,
+rating:"★★★★☆",
+discount:"42% OFF"
+},
+
+{
+name:"Classic Cotton T-Shirt",
+category:"tshirts",
+icon:"👕",
+price:499,
+old:799,
+rating:"★★★★★",
+discount:"37% OFF"
+},
+
+{
+name:"Printed Streetwear T-Shirt",
+category:"tshirts",
+icon:"👕",
+price:799,
+old:1299,
+rating:"★★★★☆",
+discount:"38% OFF"
+},
+
+/* SHOES */
+
+{
+name:"Sports Running Shoes",
+category:"shoes",
+icon:"👟",
+price:1299,
+old:1999,
+rating:"★★★★★",
+discount:"35% OFF"
+},
+
+{
+name:"Premium Sneakers",
+category:"shoes",
+icon:"👟",
+price:1799,
+old:2999,
+rating:"★★★★☆",
+discount:"40% OFF"
+},
+
+{
+name:"Men's Casual Shoes",
+category:"shoes",
+icon:"👞",
+price:1499,
+old:2299,
+rating:"★★★★★",
+discount:"35% OFF"
+},
+
+{
+name:"Comfort Walking Shoes",
+category:"shoes",
+icon:"👟",
+price:1099,
+old:1699,
+rating:"★★★★☆",
+discount:"35% OFF"
+},
+
+/* WATCHES */
+
+{
+name:"Smart Watch Series X",
+category:"watches",
+icon:"⌚",
+price:1999,
+old:2999,
+rating:"★★★★★",
+discount:"33% OFF"
+},
+
+{
+name:"Fitness Smart Watch",
+category:"watches",
+icon:"⌚",
+price:1499,
+old:2499,
+rating:"★★★★☆",
+discount:"40% OFF"
+},
+
+{
+name:"Premium Digital Watch",
+category:"watches",
+icon:"⌚",
+price:999,
+old:1499,
+rating:"★★★★★",
+discount:"33% OFF"
+},
+
+/* GAMING */
+
+{
+name:"Gaming Controller",
+category:"gaming",
+icon:"🎮",
+price:1799,
+old:2499,
+rating:"★★★★★",
+discount:"28% OFF"
+},
+
+{
+name:"Gaming Mouse",
+category:"gaming",
+icon:"🖱️",
+price:899,
+old:1499,
+rating:"★★★★☆",
+discount:"40% OFF"
+},
+
+{
+name:"Gaming Keyboard",
+category:"gaming",
+icon:"⌨️",
+price:1299,
+old:1999,
+rating:"★★★★★",
+discount:"35% OFF"
+},
+
+{
+name:"Gaming Headset",
+category:"gaming",
+icon:"🎧",
+price:1599,
+old:2499,
+rating:"★★★★☆",
+discount:"36% OFF"
+},
+
+/* KITCHEN */
+
+{
+name:"Non-Stick Cookware Set",
+category:"kitchen",
+icon:"🍳",
+price:1099,
+old:1799,
+rating:"★★★★★",
+discount:"39% OFF"
+},
+
+{
+name:"Kitchen Storage Set",
+category:"kitchen",
+icon:"🥣",
+price:699,
+old:999,
+rating:"★★★★☆",
+discount:"30% OFF"
+},
+
+{
+name:"Electric Kettle",
+category:"kitchen",
+icon:"🫖",
+price:799,
+old:1299,
+rating:"★★★★★",
+discount:"38% OFF"
+},
+
+/* BEAUTY */
+
+{
+name:"Beauty Essentials Kit",
+category:"beauty",
+icon:"💄",
+price:799,
+old:1299,
+rating:"★★★★★",
+discount:"38% OFF"
+},
+
+{
+name:"Skincare Essentials",
+category:"beauty",
+icon:"🧴",
+price:999,
+old:1499,
+rating:"★★★★☆",
+discount:"33% OFF"
+},
+
+{
+name:"Hair Care Combo",
+category:"beauty",
+icon:"💇",
+price:699,
+old:999,
+rating:"★★★★★",
+discount:"30% OFF"
+}
+
+];
+
+
+/* =========================
+   DISPLAY PRODUCTS
+========================= */
+
+let currentCategory = "all";
+
+function displayProducts(list){
+
+const grid = document.getElementById("productGrid");
+
+grid.innerHTML = "";
+
+if(list.length === 0){
+
+grid.innerHTML = `
+<div class="no-products">
+<h2>😕 No products found</h2>
+<p>Try another search or category.</p>
+</div>
+`;
+
+return;
+}
+
+list.forEach((product,index)=>{
+
+grid.innerHTML += `
+
+<div class="product">
+
+<div class="product-image">
+${product.icon}
+</div>
+
+<h3>${product.name}</h3>
+
+<div class="rating">
+${product.rating}
+</div>
+
+<div class="price">
+₹${product.price.toLocaleString("en-IN")}
+<span class="old">
+₹${product.old.toLocaleString("en-IN")}
+</span>
+</div>
+
+<div class="discount">
+${product.discount}
+</div>
+
+<div class="buttons">
+
+<button class="add"
+onclick="addToCart(${index}, '${product.name.replace(/'/g,"\\'")}')">
+🛒 Add to Cart
+</button>
+
+<button class="buy"
+onclick="buyNow(${index})">
+⚡ Buy
+</button>
+
+</div>
+
+</div>
+
+`;
+
+});
 
 }
 
-function decrease(){
 
-if(qty > 1){
+/* =========================
+   CATEGORY
+========================= */
 
-qty--;
+function showCategory(category){
+
+currentCategory = category;
+
+let filtered;
+
+if(category === "all"){
+filtered = products;
+document.getElementById("pageTitle").innerText =
+"All Products";
+document.getElementById("pageDescription").innerText =
+"Explore all DealBrand products";
+}else{
+
+filtered = products.filter(
+product => product.category === category
+);
+
+let names = {
+smartphones:"Smartphones",
+headphones:"Headphones",
+tshirts:"T-Shirts",
+shoes:"Shoes",
+watches:"Watches",
+gaming:"Gaming",
+kitchen:"Home & Kitchen",
+beauty:"Beauty"
+};
+
+document.getElementById("pageTitle").innerText =
+names[category] || "Products";
+
+document.getElementById("pageDescription").innerText =
+"Best deals on " + (names[category] || "products");
 
 }
 
-document.getElementById("qty").innerText = qty;
+displayProducts(filtered);
 
 }
 
-function addCart(){
+
+/* =========================
+   SEARCH
+========================= */
+
+function searchProducts(){
+
+let value =
+document.getElementById("searchInput")
+.value
+.toLowerCase()
+.trim();
+
+let filtered = products.filter(product => {
+
+let matchText =
+product.name.toLowerCase().includes(value);
+
+let matchCategory =
+currentCategory === "all" ||
+product.category === currentCategory;
+
+return matchText && matchCategory;
+
+});
+
+displayProducts(filtered);
+
+}
+
+
+/* =========================
+   CART
+========================= */
+
+function addToCart(index){
+
+let product = products[index];
 
 let cart =
 JSON.parse(localStorage.getItem("cart")) || [];
 
-for(let i=0;i<qty;i++){
+let existing =
+cart.find(item => item.name === product.name);
+
+if(existing){
+
+existing.quantity =
+(Number(existing.quantity) || 1) + 1;
+
+}else{
 
 cart.push({
-name:"Smartphone Pro Max",
-price:19999
+
+name:product.name,
+
+price:product.price,
+
+icon:product.icon,
+
+quantity:1
+
 });
 
 }
@@ -325,21 +796,90 @@ localStorage.setItem(
 JSON.stringify(cart)
 );
 
-alert("Product added to cart!");
+updateCartCount();
+
+alert("✅ " + product.name + " added to cart!");
 
 }
 
-function buyNow(){
 
-addCart();
+/* =========================
+   BUY NOW
+========================= */
 
-setTimeout(function(){
+function buyNow(index){
 
-window.location.href="cart.html";
+let product = products[index];
 
-},300);
+let cart = [{
+name:product.name,
+price:product.price,
+icon:product.icon,
+quantity:1
+}];
+
+localStorage.setItem(
+"cart",
+JSON.stringify(cart)
+);
+
+window.location.href="checkout.html";
 
 }
+
+
+/* =========================
+   CART COUNT
+========================= */
+
+function updateCartCount(){
+
+let cart =
+JSON.parse(localStorage.getItem("cart")) || [];
+
+let total = 0;
+
+cart.forEach(item=>{
+
+total += Number(item.quantity) || 1;
+
+});
+
+document.getElementById("cartCount").innerText = total;
+
+}
+
+
+/* =========================
+   URL CATEGORY
+========================= */
+
+function loadFromURL(){
+
+const params =
+new URLSearchParams(window.location.search);
+
+const category =
+params.get("category");
+
+if(category){
+
+showCategory(category);
+
+}else{
+
+displayProducts(products);
+
+}
+
+}
+
+
+/* START */
+
+loadFromURL();
+
+updateCartCount();
 
 </script>
 
