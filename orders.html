@@ -1,1 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>DealBrand - My Orders</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f5f5f5;
+color:#222;
+}
+
+header{
+background:#131921;
+padding:14px 5%;
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
+
+.logo{
+font-size:28px;
+font-weight:bold;
+color:#ffcc00;
+text-decoration:none;
+}
+
+.cart{
+color:white;
+text-decoration:none;
+font-weight:bold;
+}
+
+.container{
+width:90%;
+max-width:1000px;
+margin:30px auto;
+}
+
+.order{
+background:white;
+padding:20px;
+border-radius:10px;
+margin-bottom:18px;
+box-shadow:0 2px 8px #ddd;
+}
+
+.order-top{
+display:flex;
+justify-content:space-between;
+gap:15px;
+flex-wrap:wrap;
+border-bottom:1px solid #ddd;
+padding-bottom:12px;
+}
+
+.order-id{
+font-weight:bold;
+}
+
+.status{
+color:#168a3b;
+font-weight:bold;
+}
+
+.item{
+display:flex;
+align-items:center;
+gap:15px;
+padding:18px 0;
+}
+
+.icon{
+width:70px;
+height:70px;
+background:#f1f1f1;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:35px;
+border-radius:8px;
+}
+
+.item h3{
+margin-bottom:7px;
+}
+
+.price{
+font-weight:bold;
+color:#d35400;
+}
+
+.empty{
+background:white;
+padding:45px 20px;
+text-align:center;
+border-radius:10px;
+box-shadow:0 2px 8px #ddd;
+}
+
+.shop{
+display:inline-block;
+margin-top:20px;
+padding:12px 22px;
+background:#ff9900;
+color:#111;
+text-decoration:none;
+border-radius:6px;
+font-weight:bold;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<a href="index.html" class="logo">
+DealBrand
+</a>
+
+<a href="cart.html" class="cart">
+🛒 Cart
+</a>
+
+</header>
+
+<div class="container">
+
+<h1>📦 My Orders</h1>
+
+<br>
+
+<div id="orders"></div>
+
+</div>
+
+<script>
+
+let orders =
+JSON.parse(localStorage.getItem("dealbrand_orders")) || [];
+
+let box =
+document.getElementById("orders");
+
+if(orders.length === 0){
+
+box.innerHTML = `
+<div class="empty">
+
+<h2>No Orders Yet 📦</h2>
+
+<p>
+You haven't placed any orders yet.
+</p>
+
+<a href="index.html" class="shop">
+Start Shopping
+</a>
+
+</div>
+`;
+
+}
+else{
+
+orders.forEach((order,index)=>{
+
+let div =
+document.createElement("div");
+
+div.className="order";
+
+div.innerHTML=`
+
+<div class="order-top">
+
+<div class="order-id">
+Order #DB${1000 + index}
+</div>
+
+<div class="status">
+${order.status || "Order Placed"}
+</div>
+
+</div>
+
+${order.items.map(item => `
+
+<div class="item">
+
+<div class="icon">
+${item.icon || "🛍️"}
+</div>
+
+<div>
+
+<h3>${item.name}</h3>
+
+<p>
+Quantity: ${item.quantity || 1}
+</p>
+
+<p class="price">
+₹${(item.price * (item.quantity || 1)).toLocaleString("en-IN")}
+</p>
+
+</div>
+
+</div>
+
+`).join("")}
+
+`;
+
+box.appendChild(div);
+
+});
+
+}
+
+</script>
+
+</body>
+</html>
