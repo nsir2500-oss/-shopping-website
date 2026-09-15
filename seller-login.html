@@ -1,1 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DealBrand Seller Login</title>
 
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f5f6f8;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.login-box{
+    width:100%;
+    max-width:420px;
+    background:white;
+    padding:30px;
+    border-radius:18px;
+    box-shadow:0 8px 30px rgba(0,0,0,0.12);
+}
+
+.logo{
+    text-align:center;
+    font-size:30px;
+    font-weight:bold;
+    color:#ff6b00;
+    margin-bottom:8px;
+}
+
+.subtitle{
+    text-align:center;
+    color:#666;
+    margin-bottom:25px;
+}
+
+label{
+    display:block;
+    margin:15px 0 7px;
+    font-weight:bold;
+}
+
+input{
+    width:100%;
+    padding:13px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    font-size:16px;
+}
+
+button{
+    width:100%;
+    margin-top:22px;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    background:#ff6b00;
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#e85d00;
+}
+
+.message{
+    margin-top:15px;
+    text-align:center;
+    font-weight:bold;
+}
+
+.back{
+    display:block;
+    text-align:center;
+    margin-top:18px;
+    color:#333;
+    text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="login-box">
+
+    <div class="logo">DealBrand</div>
+
+    <div class="subtitle">
+        🏪 Seller Login
+    </div>
+
+    <form id="loginForm">
+
+        <label>Seller Email</label>
+        <input
+            type="email"
+            id="email"
+            placeholder="Enter seller email"
+            required
+        >
+
+        <label>Password</label>
+        <input
+            type="password"
+            id="password"
+            placeholder="Enter password"
+            required
+        >
+
+        <button type="submit">
+            🔐 Login
+        </button>
+
+    </form>
+
+    <div class="message" id="message"></div>
+
+    <a href="index.html" class="back">
+        ← Back to DealBrand
+    </a>
+
+</div>
+
+<script>
+
+document.getElementById("loginForm").addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    let email = document.getElementById("email").value.trim();
+    let password = document.getElementById("password").value;
+
+    /*
+       TEMPORARY TEST LOGIN
+       Real secure login backend later add karenge.
+    */
+
+    const sellerEmail = "seller@dealbrand.com";
+    const sellerPassword = "123456";
+
+    if(email === sellerEmail && password === sellerPassword){
+
+        localStorage.setItem("dealbrand_seller_logged_in", "true");
+        localStorage.setItem("dealbrand_seller_email", email);
+
+        document.getElementById("message").style.color = "green";
+        document.getElementById("message").innerText =
+            "✅ Login successful!";
+
+        setTimeout(function(){
+            window.location.href = "seller.html";
+        }, 700);
+
+    }else{
+
+        document.getElementById("message").style.color = "red";
+        document.getElementById("message").innerText =
+            "❌ Wrong email or password.";
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
