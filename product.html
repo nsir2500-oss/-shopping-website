@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>DealBrand - Products</title>
 
 <style>
@@ -19,11 +18,10 @@ body{
     color:#222;
 }
 
-/* HEADER */
 header{
-    background:#131921;
+    background:#2874f0;
     color:white;
-    padding:12px 5%;
+    padding:14px 5%;
     display:flex;
     align-items:center;
     gap:20px;
@@ -31,23 +29,30 @@ header{
 }
 
 .logo{
-    font-size:28px;
+    font-size:25px;
     font-weight:bold;
-    color:#ffcc00;
-    text-decoration:none;
 }
 
 .search{
     flex:1;
     min-width:220px;
+    display:flex;
 }
 
 .search input{
     width:100%;
     padding:12px;
     border:0;
-    border-radius:5px;
-    font-size:15px;
+    outline:0;
+    border-radius:4px 0 0 4px;
+}
+
+.search button{
+    padding:12px 18px;
+    border:0;
+    background:#ff9f00;
+    color:white;
+    cursor:pointer;
 }
 
 .cart{
@@ -56,182 +61,207 @@ header{
     font-weight:bold;
 }
 
-/* NAV */
-.nav{
-    background:#232f3e;
-    padding:12px 5%;
+nav{
+    background:white;
+    padding:13px 5%;
+    box-shadow:0 2px 5px rgba(0,0,0,.1);
     display:flex;
     gap:22px;
-    overflow-x:auto;
+    flex-wrap:wrap;
 }
 
-.nav a{
-    color:white;
+nav a{
+    color:#333;
     text-decoration:none;
-    white-space:nowrap;
+    font-weight:bold;
 }
 
-/* PAGE */
 .container{
-    max-width:1250px;
+    width:92%;
+    max-width:1400px;
     margin:25px auto;
-    padding:0 15px;
 }
 
-.topbar{
-    background:white;
-    padding:20px;
-    border-radius:10px;
-    margin-bottom:20px;
+.title{
+    margin-bottom:18px;
 }
 
-.topbar h1{
-    margin-bottom:8px;
+.title h1{
+    font-size:28px;
 }
 
-.topbar p{
+.title p{
     color:#666;
+    margin-top:6px;
 }
 
-/* CATEGORY BUTTONS */
-.categories{
-    display:flex;
-    gap:10px;
-    overflow-x:auto;
-    margin-top:15px;
-}
-
-.categories button{
-    border:1px solid #ddd;
+.filters{
     background:white;
-    padding:10px 16px;
+    padding:15px;
+    border-radius:8px;
+    margin-bottom:20px;
+    display:flex;
+    gap:9px;
+    flex-wrap:wrap;
+}
+
+.filter{
+    background:white;
+    border:1px solid #ddd;
+    padding:9px 14px;
     border-radius:20px;
     cursor:pointer;
-    white-space:nowrap;
 }
 
-.categories button:hover{
-    background:#ffcc00;
+.filter.active,
+.filter:hover{
+    background:#2874f0;
+    color:white;
+    border-color:#2874f0;
 }
 
-/* PRODUCTS */
-.product-grid{
+.products{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+    grid-template-columns:repeat(auto-fill,minmax(210px,1fr));
     gap:18px;
 }
 
 .product{
     background:white;
     border-radius:10px;
-    padding:15px;
-    transition:.2s;
-    position:relative;
-}
-
-.product:hover{
-    transform:translateY(-3px);
-    box-shadow:0 5px 18px rgba(0,0,0,.12);
+    overflow:hidden;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
 }
 
 .product-image{
     height:190px;
-    background:#f3f3f3;
-    border-radius:8px;
+    background:#f8f8f8;
     display:flex;
-    justify-content:center;
     align-items:center;
-    font-size:90px;
-    margin-bottom:15px;
+    justify-content:center;
+    font-size:70px;
+}
+
+.product-info{
+    padding:14px;
 }
 
 .product h3{
-    font-size:17px;
-    margin-bottom:8px;
+    font-size:16px;
+    min-height:40px;
 }
 
-.rating{
-    color:#f39c12;
-    font-size:14px;
-    margin-bottom:8px;
+.sub{
+    color:#777;
+    font-size:13px;
+    margin:6px 0;
+}
+
+.seller{
+    color:#666;
+    font-size:12px;
+    margin-bottom:5px;
 }
 
 .price{
-    font-size:21px;
+    font-size:20px;
     font-weight:bold;
-    color:#d35400;
+    margin-top:8px;
 }
 
-.old{
-    color:#888;
+.mrp{
+    color:#999;
     text-decoration:line-through;
-    font-size:14px;
+    font-size:13px;
     margin-left:5px;
 }
 
 .discount{
-    color:green;
+    color:#008000;
     font-size:13px;
-    margin:5px 0 12px;
+    font-weight:bold;
+    margin-top:4px;
+}
+
+.rating{
+    color:#f59e0b;
+    font-size:14px;
+    margin-top:5px;
 }
 
 .buttons{
     display:flex;
-    gap:8px;
+    gap:7px;
+    margin-top:12px;
 }
 
 .buttons button{
     flex:1;
-    border:0;
     padding:10px 5px;
-    border-radius:6px;
+    border:0;
+    border-radius:5px;
     cursor:pointer;
     font-weight:bold;
 }
 
 .add{
-    background:#ffd814;
+    background:#ff9f00;
+    color:white;
 }
 
 .buy{
-    background:#ff9900;
+    background:#2874f0;
+    color:white;
 }
 
 .no-products{
     background:white;
-    padding:50px;
+    padding:55px 20px;
     text-align:center;
     border-radius:10px;
+    grid-column:1/-1;
 }
 
-/* MOBILE */
-@media(max-width:900px){
-    .product-grid{
-        grid-template-columns:repeat(3,1fr);
+.no-products h2{
+    margin-bottom:8px;
+}
+
+@media(max-width:600px){
+
+    header{
+        padding:12px 3%;
     }
-}
 
-@media(max-width:650px){
-    .product-grid{
+    nav{
+        padding:12px 3%;
+        gap:13px;
+        font-size:14px;
+    }
+
+    .container{
+        width:94%;
+    }
+
+    .products{
         grid-template-columns:repeat(2,1fr);
         gap:10px;
     }
 
-    .product{
+    .product-image{
+        height:145px;
+        font-size:55px;
+    }
+
+    .product-info{
         padding:10px;
     }
 
-    .product-image{
-        height:150px;
-        font-size:65px;
-    }
-
     .product h3{
-        font-size:15px;
+        font-size:14px;
     }
 
     .price{
-        font-size:18px;
+        font-size:17px;
     }
 
     .buttons{
@@ -245,641 +275,625 @@ header{
 
 <header>
 
-<a href="index.html" class="logo">DealBrand</a>
+    <div class="logo">DealBrand</div>
 
-<div class="search">
-<input
-id="searchInput"
-type="text"
-placeholder="Search DealBrand products..."
-onkeyup="searchProducts()">
-</div>
+    <div class="search">
+        <input
+            id="searchInput"
+            type="text"
+            placeholder="Search products..."
+            onkeyup="searchProducts()"
+        >
+        <button onclick="searchProducts()">Search</button>
+    </div>
 
-<a href="cart.html" class="cart">
-🛒 Cart <span id="cartCount">0</span>
-</a>
+    <a href="cart.html" class="cart">
+        🛒 Cart (<span id="cartCount">0</span>)
+    </a>
 
 </header>
 
-<div class="nav">
-<a href="index.html">Home</a>
-<a href="categories.html">Categories</a>
-<a href="products.html">Products</a>
-<a href="wishlist.html">❤️ Wishlist</a>
-<a href="orders.html">My Orders</a>
-</div>
+<nav>
+    <a href="index.html">Home</a>
+    <a href="categories.html">Categories</a>
+    <a href="products.html">Products</a>
+    <a href="wishlist.html">❤️ Wishlist</a>
+    <a href="orders.html">My Orders</a>
+</nav>
 
 <div class="container">
 
-<div class="topbar">
+    <div class="title">
+        <h1 id="pageTitle">All Products</h1>
+        <p id="pageSubtitle">
+            Products listed by DealBrand sellers
+        </p>
+    </div>
 
-<h1 id="pageTitle">All Products</h1>
+    <div class="filters">
 
-<p id="pageDescription">
-Explore products from DealBrand
-</p>
+        <button class="filter active"
+        onclick="showCategory('all',this)">
+        All
+        </button>
 
-<div class="categories">
+        <button class="filter"
+        onclick="showCategory('smartphones',this)">
+        📱 Mobiles
+        </button>
 
-<button onclick="showCategory('all')">All</button>
-<button onclick="showCategory('smartphones')">📱 Smartphones</button>
-<button onclick="showCategory('headphones')">🎧 Headphones</button>
-<button onclick="showCategory('tshirts')">👕 T-Shirts</button>
-<button onclick="showCategory('shoes')">👟 Shoes</button>
-<button onclick="showCategory('watches')">⌚ Watches</button>
-<button onclick="showCategory('gaming')">🎮 Gaming</button>
-<button onclick="showCategory('kitchen')">🍳 Kitchen</button>
-<button onclick="showCategory('beauty')">💄 Beauty</button>
+        <button class="filter"
+        onclick="showCategory('electronics',this)">
+        💻 Electronics
+        </button>
 
-</div>
+        <button class="filter"
+        onclick="showCategory('fashion',this)">
+        👕 Fashion
+        </button>
 
-</div>
+        <button class="filter"
+        onclick="showCategory('shoes',this)">
+        👟 Shoes
+        </button>
 
-<div id="productGrid" class="product-grid"></div>
+        <button class="filter"
+        onclick="showCategory('home',this)">
+        🏠 Home
+        </button>
+
+        <button class="filter"
+        onclick="showCategory('gaming',this)">
+        🎮 Gaming
+        </button>
+
+        <button class="filter"
+        onclick="showCategory('beauty',this)">
+        💄 Beauty
+        </button>
+
+        <button class="filter"
+        onclick="showCategory('watches',this)">
+        ⌚ Watches
+        </button>
+
+        <button class="filter"
+        onclick="showCategory('accessories',this)">
+        👜 Accessories
+        </button>
+
+        <button class="filter"
+        onclick="showCategory('grocery',this)">
+        🛒 Grocery
+        </button>
+
+        <button class="filter"
+        onclick="showCategory('books',this)">
+        📚 Books
+        </button>
+
+        <button class="filter"
+        onclick="showCategory('toys',this)">
+        🧸 Toys
+        </button>
+
+    </div>
+
+    <div id="products" class="products"></div>
 
 </div>
 
 <script>
 
-/* =========================
-   DEALBRAND PRODUCTS
-========================= */
+/*
+====================================================
+DEALBRAND PRODUCT SYSTEM
+====================================================
 
-const products = [
+IMPORTANT:
 
-/* SMARTPHONES */
+Price seller set karega.
 
-{
-name:"Smartphone Pro Max",
-category:"smartphones",
-icon:"📱",
-price:19999,
-old:24999,
-rating:"★★★★★",
-discount:"20% OFF"
-},
+Seller:
+- MRP
+- Selling Price
+- Discount ON/OFF
+- Discount %
 
-{
-name:"Galaxy Style 5G",
-category:"smartphones",
-icon:"📱",
-price:16999,
-old:21999,
-rating:"★★★★☆",
-discount:"23% OFF"
-},
+khud decide karega.
 
-{
-name:"Power Max 5G",
-category:"smartphones",
-icon:"📱",
-price:13999,
-old:17999,
-rating:"★★★★★",
-discount:"22% OFF"
-},
+App koi fixed price ya compulsory discount
+set nahi karega.
 
-{
-name:"Ultra Camera Phone",
-category:"smartphones",
-icon:"📱",
-price:22999,
-old:28999,
-rating:"★★★★☆",
-discount:"21% OFF"
-},
-
-/* HEADPHONES */
-
-{
-name:"Wireless Bluetooth Headphones",
-category:"headphones",
-icon:"🎧",
-price:1499,
-old:2499,
-rating:"★★★★★",
-discount:"40% OFF"
-},
-
-{
-name:"Premium Bass Headphones",
-category:"headphones",
-icon:"🎧",
-price:1999,
-old:2999,
-rating:"★★★★☆",
-discount:"33% OFF"
-},
-
-{
-name:"Noise Cancelling Headphones",
-category:"headphones",
-icon:"🎧",
-price:2499,
-old:3999,
-rating:"★★★★★",
-discount:"37% OFF"
-},
-
-/* T SHIRTS */
-
-{
-name:"Premium Casual T-Shirt",
-category:"tshirts",
-icon:"👕",
-price:599,
-old:999,
-rating:"★★★★★",
-discount:"40% OFF"
-},
-
-{
-name:"Oversized Black T-Shirt",
-category:"tshirts",
-icon:"👕",
-price:699,
-old:1199,
-rating:"★★★★☆",
-discount:"42% OFF"
-},
-
-{
-name:"Classic Cotton T-Shirt",
-category:"tshirts",
-icon:"👕",
-price:499,
-old:799,
-rating:"★★★★★",
-discount:"37% OFF"
-},
-
-{
-name:"Printed Streetwear T-Shirt",
-category:"tshirts",
-icon:"👕",
-price:799,
-old:1299,
-rating:"★★★★☆",
-discount:"38% OFF"
-},
-
-/* SHOES */
-
-{
-name:"Sports Running Shoes",
-category:"shoes",
-icon:"👟",
-price:1299,
-old:1999,
-rating:"★★★★★",
-discount:"35% OFF"
-},
-
-{
-name:"Premium Sneakers",
-category:"shoes",
-icon:"👟",
-price:1799,
-old:2999,
-rating:"★★★★☆",
-discount:"40% OFF"
-},
-
-{
-name:"Men's Casual Shoes",
-category:"shoes",
-icon:"👞",
-price:1499,
-old:2299,
-rating:"★★★★★",
-discount:"35% OFF"
-},
-
-{
-name:"Comfort Walking Shoes",
-category:"shoes",
-icon:"👟",
-price:1099,
-old:1699,
-rating:"★★★★☆",
-discount:"35% OFF"
-},
-
-/* WATCHES */
-
-{
-name:"Smart Watch Series X",
-category:"watches",
-icon:"⌚",
-price:1999,
-old:2999,
-rating:"★★★★★",
-discount:"33% OFF"
-},
-
-{
-name:"Fitness Smart Watch",
-category:"watches",
-icon:"⌚",
-price:1499,
-old:2499,
-rating:"★★★★☆",
-discount:"40% OFF"
-},
-
-{
-name:"Premium Digital Watch",
-category:"watches",
-icon:"⌚",
-price:999,
-old:1499,
-rating:"★★★★★",
-discount:"33% OFF"
-},
-
-/* GAMING */
-
-{
-name:"Gaming Controller",
-category:"gaming",
-icon:"🎮",
-price:1799,
-old:2499,
-rating:"★★★★★",
-discount:"28% OFF"
-},
-
-{
-name:"Gaming Mouse",
-category:"gaming",
-icon:"🖱️",
-price:899,
-old:1499,
-rating:"★★★★☆",
-discount:"40% OFF"
-},
-
-{
-name:"Gaming Keyboard",
-category:"gaming",
-icon:"⌨️",
-price:1299,
-old:1999,
-rating:"★★★★★",
-discount:"35% OFF"
-},
-
-{
-name:"Gaming Headset",
-category:"gaming",
-icon:"🎧",
-price:1599,
-old:2499,
-rating:"★★★★☆",
-discount:"36% OFF"
-},
-
-/* KITCHEN */
-
-{
-name:"Non-Stick Cookware Set",
-category:"kitchen",
-icon:"🍳",
-price:1099,
-old:1799,
-rating:"★★★★★",
-discount:"39% OFF"
-},
-
-{
-name:"Kitchen Storage Set",
-category:"kitchen",
-icon:"🥣",
-price:699,
-old:999,
-rating:"★★★★☆",
-discount:"30% OFF"
-},
-
-{
-name:"Electric Kettle",
-category:"kitchen",
-icon:"🫖",
-price:799,
-old:1299,
-rating:"★★★★★",
-discount:"38% OFF"
-},
-
-/* BEAUTY */
-
-{
-name:"Beauty Essentials Kit",
-category:"beauty",
-icon:"💄",
-price:799,
-old:1299,
-rating:"★★★★★",
-discount:"38% OFF"
-},
-
-{
-name:"Skincare Essentials",
-category:"beauty",
-icon:"🧴",
-price:999,
-old:1499,
-rating:"★★★★☆",
-discount:"33% OFF"
-},
-
-{
-name:"Hair Care Combo",
-category:"beauty",
-icon:"💇",
-price:699,
-old:999,
-rating:"★★★★★",
-discount:"30% OFF"
-}
-
-];
+====================================================
+*/
 
 
-/* =========================
-   DISPLAY PRODUCTS
-========================= */
+let products = JSON.parse(
+    localStorage.getItem("dealbrand_products")
+) || [];
+
+
+/*
+Demo products intentionally EMPTY.
+
+Actual products Seller Dashboard se
+add honge.
+*/
+
 
 let currentCategory = "all";
+let currentSub = "all";
 
-function displayProducts(list){
-
-const grid = document.getElementById("productGrid");
-
-grid.innerHTML = "";
-
-if(list.length === 0){
-
-grid.innerHTML = `
-<div class="no-products">
-<h2>😕 No products found</h2>
-<p>Try another search or category.</p>
-</div>
-`;
-
-return;
-}
-
-list.forEach((product,index)=>{
-
-grid.innerHTML += `
-
-<div class="product">
-
-<div class="product-image">
-${product.icon}
-</div>
-
-<h3>${product.name}</h3>
-
-<div class="rating">
-${product.rating}
-</div>
-
-<div class="price">
-₹${product.price.toLocaleString("en-IN")}
-<span class="old">
-₹${product.old.toLocaleString("en-IN")}
-</span>
-</div>
-
-<div class="discount">
-${product.discount}
-</div>
-
-<div class="buttons">
-
-<button class="add"
-onclick="addToCart(${index}, '${product.name.replace(/'/g,"\\'")}')">
-🛒 Add to Cart
-</button>
-
-<button class="buy"
-onclick="buyNow(${index})">
-⚡ Buy
-</button>
-
-</div>
-
-</div>
-
-`;
-
-});
-
-}
-
-
-/* =========================
-   CATEGORY
-========================= */
-
-function showCategory(category){
-
-currentCategory = category;
-
-let filtered;
-
-if(category === "all"){
-filtered = products;
-document.getElementById("pageTitle").innerText =
-"All Products";
-document.getElementById("pageDescription").innerText =
-"Explore all DealBrand products";
-}else{
-
-filtered = products.filter(
-product => product.category === category
-);
-
-let names = {
-smartphones:"Smartphones",
-headphones:"Headphones",
-tshirts:"T-Shirts",
-shoes:"Shoes",
-watches:"Watches",
-gaming:"Gaming",
-kitchen:"Home & Kitchen",
-beauty:"Beauty"
-};
-
-document.getElementById("pageTitle").innerText =
-names[category] || "Products";
-
-document.getElementById("pageDescription").innerText =
-"Best deals on " + (names[category] || "products");
-
-}
-
-displayProducts(filtered);
-
-}
-
-
-/* =========================
-   SEARCH
-========================= */
-
-function searchProducts(){
-
-let value =
-document.getElementById("searchInput")
-.value
-.toLowerCase()
-.trim();
-
-let filtered = products.filter(product => {
-
-let matchText =
-product.name.toLowerCase().includes(value);
-
-let matchCategory =
-currentCategory === "all" ||
-product.category === currentCategory;
-
-return matchText && matchCategory;
-
-});
-
-displayProducts(filtered);
-
-}
-
-
-/* =========================
-   CART
-========================= */
-
-function addToCart(index){
-
-let product = products[index];
-
-let cart =
-JSON.parse(localStorage.getItem("cart")) || [];
-
-let existing =
-cart.find(item => item.name === product.name);
-
-if(existing){
-
-existing.quantity =
-(Number(existing.quantity) || 1) + 1;
-
-}else{
-
-cart.push({
-
-name:product.name,
-
-price:product.price,
-
-icon:product.icon,
-
-quantity:1
-
-});
-
-}
-
-localStorage.setItem(
-"cart",
-JSON.stringify(cart)
-);
-
-updateCartCount();
-
-alert("✅ " + product.name + " added to cart!");
-
-}
-
-
-/* =========================
-   BUY NOW
-========================= */
-
-function buyNow(index){
-
-let product = products[index];
-
-let cart = [{
-name:product.name,
-price:product.price,
-icon:product.icon,
-quantity:1
-}];
-
-localStorage.setItem(
-"cart",
-JSON.stringify(cart)
-);
-
-window.location.href="checkout.html";
-
-}
-
-
-/* =========================
-   CART COUNT
-========================= */
 
 function updateCartCount(){
 
-let cart =
-JSON.parse(localStorage.getItem("cart")) || [];
+    let cart =
+        JSON.parse(localStorage.getItem("cart")) || [];
 
-let total = 0;
+    let total = 0;
 
-cart.forEach(item=>{
+    cart.forEach(item => {
+        total += Number(item.quantity) || 1;
+    });
 
-total += Number(item.quantity) || 1;
-
-});
-
-document.getElementById("cartCount").innerText = total;
-
+    document.getElementById("cartCount").innerText = total;
 }
 
 
-/* =========================
-   URL CATEGORY
-========================= */
+function addToCart(id){
 
-function loadFromURL(){
+    let product =
+        products.find(item => item.id == id);
 
-const params =
-new URLSearchParams(window.location.search);
+    if(!product) return;
 
-const category =
-params.get("category");
+    let cart =
+        JSON.parse(localStorage.getItem("cart")) || [];
 
-if(category){
+    let existing =
+        cart.find(item => item.name === product.name);
 
-showCategory(category);
+    if(existing){
 
-}else{
+        existing.quantity =
+            (Number(existing.quantity) || 1) + 1;
 
-displayProducts(products);
+    }else{
 
+        cart.push({
+
+            name:product.name,
+
+            price:Number(product.sellingPrice),
+
+            icon:product.icon || "🛍️",
+
+            quantity:1
+
+        });
+
+    }
+
+    localStorage.setItem(
+        "cart",
+        JSON.stringify(cart)
+    );
+
+    updateCartCount();
+
+    alert(
+        "✅ " +
+        product.name +
+        " added to cart!"
+    );
 }
 
+
+function buyNow(id){
+
+    let product =
+        products.find(item => item.id == id);
+
+    if(!product) return;
+
+    let cart = [{
+
+        name:product.name,
+
+        price:Number(product.sellingPrice),
+
+        icon:product.icon || "🛍️",
+
+        quantity:1
+
+    }];
+
+    localStorage.setItem(
+        "cart",
+        JSON.stringify(cart)
+    );
+
+    window.location.href =
+        "checkout.html";
 }
 
 
-/* START */
+function displayProducts(list){
 
-loadFromURL();
+    const box =
+        document.getElementById("products");
+
+    if(list.length === 0){
+
+        box.innerHTML = `
+
+        <div class="no-products">
+
+            <h2>🛍️ No Products Yet</h2>
+
+            <p>
+            Products added by sellers will appear here.
+            </p>
+
+        </div>
+
+        `;
+
+        return;
+    }
+
+
+    box.innerHTML = list.map(product => {
+
+        let price =
+            Number(product.sellingPrice) || 0;
+
+        let mrp =
+            Number(product.mrp) || 0;
+
+        let discountHTML = "";
+
+        /*
+        Discount sirf tab show hoga
+        jab seller ne discount ON kiya ho.
+        */
+
+        if(
+            product.discountEnabled === true &&
+            Number(product.discountPercent) > 0
+        ){
+
+            discountHTML = `
+
+            <div class="discount">
+                ${Number(product.discountPercent)}% OFF
+            </div>
+
+            `;
+
+        }
+
+
+        let mrpHTML = "";
+
+        if(mrp > price && mrp > 0){
+
+            mrpHTML = `
+
+            <span class="mrp">
+                ₹${mrp.toLocaleString("en-IN")}
+            </span>
+
+            `;
+
+        }
+
+
+        return `
+
+        <div class="product">
+
+            <div class="product-image">
+                ${product.icon || "🛍️"}
+            </div>
+
+            <div class="product-info">
+
+                <h3>
+                    ${product.name}
+                </h3>
+
+                <div class="sub">
+                    ${(product.sub || "")
+                    .replaceAll("-"," ")}
+                </div>
+
+                <div class="seller">
+                    Seller: ${product.seller || "DealBrand Seller"}
+                </div>
+
+                <div class="rating">
+                    ${product.rating || "☆☆☆☆☆"}
+                </div>
+
+                <div class="price">
+
+                    ₹${price.toLocaleString("en-IN")}
+
+                    ${mrpHTML}
+
+                </div>
+
+                ${discountHTML}
+
+                <div class="buttons">
+
+                    <button
+                    class="add"
+                    onclick="addToCart(${product.id})">
+                    🛒 Add
+                    </button>
+
+                    <button
+                    class="buy"
+                    onclick="buyNow(${product.id})">
+                    Buy Now
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        `;
+
+    }).join("");
+}
+
+
+function showCategory(
+    category,
+    button = null
+){
+
+    currentCategory = category;
+
+    currentSub = "all";
+
+    let list;
+
+
+    if(category === "all"){
+
+        list = products;
+
+        document.getElementById(
+            "pageTitle"
+        ).innerText = "All Products";
+
+        document.getElementById(
+            "pageSubtitle"
+        ).innerText =
+        "Products listed by DealBrand sellers";
+
+    }else{
+
+        list =
+            products.filter(
+                product =>
+                product.category === category
+            );
+
+        document.getElementById(
+            "pageTitle"
+        ).innerText =
+        categoryName(category);
+
+        document.getElementById(
+            "pageSubtitle"
+        ).innerText =
+        "Products in this category";
+    }
+
+
+    document.querySelectorAll(".filter")
+    .forEach(btn => {
+
+        btn.classList.remove("active");
+
+    });
+
+
+    if(button){
+
+        button.classList.add("active");
+
+    }
+
+
+    document.getElementById(
+        "searchInput"
+    ).value = "";
+
+
+    displayProducts(list);
+}
+
+
+function showSubcategory(sub){
+
+    currentSub = sub;
+
+    let list =
+        products.filter(
+            product =>
+            product.sub === sub
+        );
+
+
+    document.getElementById(
+        "pageTitle"
+    ).innerText =
+        sub
+        .replaceAll("-"," ")
+        .replace(/\b\w/g,l =>
+        l.toUpperCase());
+
+
+    document.getElementById(
+        "pageSubtitle"
+    ).innerText =
+        "Products in this subcategory";
+
+
+    document.querySelectorAll(".filter")
+    .forEach(btn => {
+
+        btn.classList.remove("active");
+
+    });
+
+
+    displayProducts(list);
+}
+
+
+function searchProducts(){
+
+    let value =
+        document.getElementById(
+            "searchInput"
+        ).value
+        .toLowerCase()
+        .trim();
+
+
+    let list =
+        products.filter(product => {
+
+            let categoryMatch =
+                currentCategory === "all" ||
+                product.category ===
+                currentCategory;
+
+
+            let subMatch =
+                currentSub === "all" ||
+                product.sub ===
+                currentSub;
+
+
+            let searchMatch =
+                product.name
+                .toLowerCase()
+                .includes(value)
+                ||
+
+                (product.sub || "")
+                .toLowerCase()
+                .includes(value);
+
+
+            return (
+                categoryMatch &&
+                subMatch &&
+                searchMatch
+            );
+
+        });
+
+
+    displayProducts(list);
+}
+
+
+function categoryName(category){
+
+    const names = {
+
+        smartphones:
+        "Mobiles & Tablets",
+
+        electronics:
+        "Electronics",
+
+        fashion:
+        "Fashion",
+
+        shoes:
+        "Footwear",
+
+        home:
+        "Home & Kitchen",
+
+        gaming:
+        "Gaming",
+
+        beauty:
+        "Beauty",
+
+        watches:
+        "Watches",
+
+        accessories:
+        "Accessories",
+
+        grocery:
+        "Grocery",
+
+        books:
+        "Books",
+
+        toys:
+        "Toys"
+
+    };
+
+
+    return names[category] ||
+           "Products";
+}
+
+
+function loadURL(){
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+    const category =
+        params.get("category");
+
+    const sub =
+        params.get("sub");
+
+
+    if(sub){
+
+        showSubcategory(sub);
+
+        return;
+    }
+
+
+    if(category){
+
+        showCategory(category);
+
+        return;
+    }
+
+
+    displayProducts(products);
+}
+
 
 updateCartCount();
+
+loadURL();
 
 </script>
 
