@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>DealBrand - Categories</title>
 
 <style>
@@ -20,12 +21,10 @@ color:#222;
 
 header{
 background:#131921;
-color:white;
 padding:14px 5%;
 display:flex;
 align-items:center;
-gap:20px;
-flex-wrap:wrap;
+justify-content:space-between;
 }
 
 .logo{
@@ -35,93 +34,80 @@ color:#ffcc00;
 text-decoration:none;
 }
 
-.search{
-flex:1;
-min-width:220px;
-}
-
-.search input{
-width:100%;
-padding:12px;
-border:0;
-font-size:15px;
-}
-
 .cart{
 color:white;
 text-decoration:none;
 font-weight:bold;
 }
 
-nav{
-background:#232f3e;
-padding:12px 5%;
-display:flex;
-gap:25px;
-overflow-x:auto;
-}
-
-nav a{
-color:white;
-text-decoration:none;
-white-space:nowrap;
-}
-
 .container{
-padding:25px 5%;
+width:94%;
+max-width:1200px;
+margin:25px auto;
 }
 
-h1{
-margin-bottom:25px;
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-gap:18px;
-}
-
-.card{
+.title{
 background:white;
-padding:30px 15px;
+padding:22px;
+border-radius:10px;
+margin-bottom:20px;
+box-shadow:0 2px 7px #ddd;
+}
+
+.title h1{
+margin-bottom:8px;
+}
+
+.category{
+background:white;
+margin-bottom:18px;
+border-radius:10px;
+padding:20px;
+box-shadow:0 2px 7px #ddd;
+}
+
+.category h2{
+margin-bottom:15px;
+color:#111827;
+}
+
+.subcategories{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+gap:12px;
+}
+
+.sub{
+background:#f8f8f8;
+padding:16px 10px;
+border-radius:8px;
 text-align:center;
-border-radius:12px;
-box-shadow:0 2px 8px #ddd;
 text-decoration:none;
 color:#222;
-transition:.2s;
+font-weight:bold;
+border:1px solid #eee;
 }
 
-.card:hover{
-transform:translateY(-5px);
+.sub:hover{
+background:#fff3cd;
 }
 
 .icon{
-font-size:60px;
-margin-bottom:15px;
-}
-
-.card h2{
-font-size:19px;
-}
-
-.card p{
-margin-top:8px;
-color:#777;
-}
-
-footer{
-margin-top:40px;
-background:#131921;
-color:white;
-padding:30px;
-text-align:center;
+font-size:30px;
+display:block;
+margin-bottom:7px;
 }
 
 @media(max-width:600px){
+
 .container{
-padding:20px 3%;
+width:92%;
 }
+
+.subcategories{
+grid-template-columns:repeat(2,1fr);
+}
+
 }
 </style>
 </head>
@@ -130,89 +116,536 @@ padding:20px 3%;
 
 <header>
 
-<a href="index.html" class="logo">DealBrand</a>
+<a href="index.html" class="logo">
+DealBrand
+</a>
 
-<div class="search">
-<input type="text" placeholder="Search products...">
-</div>
-
-<a href="cart.html" class="cart">🛒 Cart</a>
+<a href="cart.html" class="cart">
+🛒 Cart
+</a>
 
 </header>
 
-<nav>
-<a href="index.html">Home</a>
-<a href="categories.html">Categories</a>
-<a href="index.html#deals">Deals</a>
-<a href="index.html#products">Products</a>
-<a href="#">❤️ Wishlist</a>
-<a href="#">Login</a>
-</nav>
-
 <div class="container">
 
+<div class="title">
 <h1>🛍️ All Categories</h1>
+<p>Shop everything you need from DealBrand.</p>
+</div>
 
-<div class="grid">
 
-<a href="product.html" class="card">
-<div class="icon">📱</div>
-<h2>Mobiles & Accessories</h2>
-<p>Phones, covers, chargers & more</p>
+<!-- MOBILES -->
+
+<div class="category">
+
+<h2>📱 Mobiles & Tablets</h2>
+
+<div class="subcategories">
+
+<a class="sub" href="product.html">
+<span class="icon">📱</span>
+Mobiles
 </a>
 
-<a href="product.html" class="card">
-<div class="icon">🎧</div>
-<h2>Electronics</h2>
-<p>Headphones, gadgets & devices</p>
+<a class="sub" href="product.html">
+<span class="icon">📱</span>
+Smartphones
 </a>
 
-<a href="product.html" class="card">
-<div class="icon">👕</div>
-<h2>Fashion</h2>
-<p>Clothing & trending styles</p>
+<a class="sub" href="product.html">
+<span class="icon">☎️</span>
+Feature Phones
 </a>
 
-<a href="product.html" class="card">
-<div class="icon">👟</div>
-<h2>Shoes</h2>
-<p>Sports, casual & sneakers</p>
+<a class="sub" href="product.html">
+<span class="icon">📲</span>
+Tablets
 </a>
 
-<a href="product.html" class="card">
-<div class="icon">🏠</div>
-<h2>Home & Kitchen</h2>
-<p>Home essentials & cookware</p>
+<a class="sub" href="product.html">
+<span class="icon">🔌</span>
+Chargers
 </a>
 
-<a href="product.html" class="card">
-<div class="icon">🎮</div>
-<h2>Gaming</h2>
-<p>Controllers, accessories & more</p>
+<a class="sub" href="product.html">
+<span class="icon">🔋</span>
+Power Banks
 </a>
 
-<a href="product.html" class="card">
-<div class="icon">💄</div>
-<h2>Beauty</h2>
-<p>Beauty & personal care</p>
+<a class="sub" href="product.html">
+<span class="icon">🎧</span>
+Earphones
 </a>
 
-<a href="product.html" class="card">
-<div class="icon">⌚</div>
-<h2>Watches & Accessories</h2>
-<p>Watches, bags & accessories</p>
+<a class="sub" href="product.html">
+<span class="icon">📱</span>
+Cases & Covers
 </a>
 
 </div>
-
 </div>
 
-<footer>
 
-<h2>DealBrand</h2>
-<p>Everything you need. One marketplace.</p>
+<!-- ELECTRONICS -->
 
-</footer>
+<div class="category">
+
+<h2>💻 Electronics</h2>
+
+<div class="subcategories">
+
+<a class="sub" href="product.html">
+<span class="icon">💻</span>
+Laptops
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">🖥️</span>
+Computers
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">🖥️</span>
+Monitors
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">🎧</span>
+Headphones
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">🔊</span>
+Speakers
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">📷</span>
+Cameras
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">📺</span>
+Televisions
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">🖨️</span>
+Printers
+</a>
+
+</div>
+</div>
+
+
+<!-- FASHION -->
+
+<div class="category">
+
+<h2>👕 Fashion</h2>
+
+<div class="subcategories">
+
+<a class="sub" href="product.html">
+<span class="icon">👔</span>
+Men
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">👗</span>
+Women
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">🧒</span>
+Kids
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">👕</span>
+T-Shirts
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">👔</span>
+Shirts
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">👖</span>
+Jeans
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">🥻</span>
+Ethnic Wear
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">🧥</span>
+Winter Wear
+</a>
+
+</div>
+</div>
+
+
+<!-- FOOTWEAR -->
+
+<div class="category">
+
+<h2>👟 Footwear</h2>
+
+<div class="subcategories">
+
+<a class="sub" href="product.html">
+<span class="icon">👞</span>
+Men's Shoes
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">👠</span>
+Women's Shoes
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">🏃</span>
+Sports Shoes
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">👟</span>
+Sneakers
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">🩴</span>
+Sandals
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">🥿</span>
+Slippers
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">👞</span>
+Formal Shoes
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">👟</span>
+Kids Footwear
+</a>
+
+</div>
+</div>
+
+
+<!-- HOME -->
+
+<div class="category">
+
+<h2>🏠 Home & Kitchen</h2>
+
+<div class="subcategories">
+
+<a class="sub" href="product.html">
+<span class="icon">🍳</span>
+Kitchen
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">🍲</span>
+Cookware
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">🛋️</span>
+Home Decor
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">🪑</span>
+Furniture
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">🛏️</span>
+Bedsheets
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">🪟</span>
+Curtains
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">📦</span>
+Storage
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">🧹</span>
+Cleaning
+</a>
+
+</div>
+</div>
+
+
+<!-- GAMING -->
+
+<div class="category">
+
+<h2>🎮 Gaming</h2>
+
+<div class="subcategories">
+
+<a class="sub" href="product.html">
+<span class="icon">🎮</span>
+Gaming Consoles
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">🎮</span>
+Controllers
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">🖱️</span>
+Gaming Mouse
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">⌨️</span>
+Gaming Keyboard
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">🎧</span>
+Gaming Headsets
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">🕹️</span>
+Gaming Accessories
+</a>
+
+</div>
+</div>
+
+
+<!-- BEAUTY -->
+
+<div class="category">
+
+<h2>💄 Beauty & Personal Care</h2>
+
+<div class="subcategories">
+
+<a class="sub" href="product.html">
+<span class="icon">💄</span>
+Makeup
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">🧴</span>
+Skincare
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">💇</span>
+Hair Care
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">🌸</span>
+Fragrances
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">🪒</span>
+Grooming
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">🧼</span>
+Personal Care
+</a>
+
+</div>
+</div>
+
+
+<!-- WATCHES -->
+
+<div class="category">
+
+<h2>⌚ Watches & Accessories</h2>
+
+<div class="subcategories">
+
+<a class="sub" href="product.html">
+<span class="icon">⌚</span>
+Smart Watches
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">⌚</span>
+Analog Watches
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">⌚</span>
+Digital Watches
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">🕶️</span>
+Sunglasses
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">👛</span>
+Wallets
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">👜</span>
+Bags
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">💍</span>
+Jewellery
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">🧢</span>
+Accessories
+</a>
+
+</div>
+</div>
+
+
+<!-- GROCERY -->
+
+<div class="category">
+
+<h2>🛒 Grocery & Daily Needs</h2>
+
+<div class="subcategories">
+
+<a class="sub" href="product.html">
+<span class="icon">🍎</span>
+Food
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">🥤</span>
+Beverages
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">🍿</span>
+Snacks
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">🧹</span>
+Household Supplies
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">🧴</span>
+Personal Care
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">🍼</span>
+Baby Care
+</a>
+
+</div>
+</div>
+
+
+<!-- BOOKS -->
+
+<div class="category">
+
+<h2>📚 Books & Education</h2>
+
+<div class="subcategories">
+
+<a class="sub" href="product.html">
+<span class="icon">📚</span>
+Books
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">🎒</span>
+School Supplies
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">✏️</span>
+Stationery
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">🖊️</span>
+Office Supplies
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">📖</span>
+Educational Items
+</a>
+
+</div>
+</div>
+
+
+<!-- TOYS -->
+
+<div class="category">
+
+<h2>🧸 Toys, Baby & Kids</h2>
+
+<div class="subcategories">
+
+<a class="sub" href="product.html">
+<span class="icon">🧸</span>
+Toys
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">👶</span>
+Baby Clothing
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">🍼</span>
+Baby Care
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">🎲</span>
+Games
+</a>
+
+<a class="sub" href="product.html">
+<span class="icon">🎒</span>
+Kids Accessories
+</a>
+
+</div>
+</div>
+
+</div>
 
 </body>
 </html>
