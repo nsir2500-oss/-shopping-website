@@ -1,1 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DealBrand - Categories</title>
 
+<style>
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f5f5f5;
+color:#222;
+}
+
+header{
+background:#131921;
+color:white;
+padding:14px 5%;
+display:flex;
+align-items:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.logo{
+font-size:28px;
+font-weight:bold;
+color:#ffcc00;
+text-decoration:none;
+}
+
+.search{
+flex:1;
+min-width:220px;
+}
+
+.search input{
+width:100%;
+padding:12px;
+border:0;
+font-size:15px;
+}
+
+.cart{
+color:white;
+text-decoration:none;
+font-weight:bold;
+}
+
+nav{
+background:#232f3e;
+padding:12px 5%;
+display:flex;
+gap:25px;
+overflow-x:auto;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+white-space:nowrap;
+}
+
+.container{
+padding:25px 5%;
+}
+
+h1{
+margin-bottom:25px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:18px;
+}
+
+.card{
+background:white;
+padding:30px 15px;
+text-align:center;
+border-radius:12px;
+box-shadow:0 2px 8px #ddd;
+text-decoration:none;
+color:#222;
+transition:.2s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.icon{
+font-size:60px;
+margin-bottom:15px;
+}
+
+.card h2{
+font-size:19px;
+}
+
+.card p{
+margin-top:8px;
+color:#777;
+}
+
+footer{
+margin-top:40px;
+background:#131921;
+color:white;
+padding:30px;
+text-align:center;
+}
+
+@media(max-width:600px){
+.container{
+padding:20px 3%;
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<a href="index.html" class="logo">DealBrand</a>
+
+<div class="search">
+<input type="text" placeholder="Search products...">
+</div>
+
+<a href="cart.html" class="cart">🛒 Cart</a>
+
+</header>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="categories.html">Categories</a>
+<a href="index.html#deals">Deals</a>
+<a href="index.html#products">Products</a>
+<a href="#">❤️ Wishlist</a>
+<a href="#">Login</a>
+</nav>
+
+<div class="container">
+
+<h1>🛍️ All Categories</h1>
+
+<div class="grid">
+
+<a href="product.html" class="card">
+<div class="icon">📱</div>
+<h2>Mobiles & Accessories</h2>
+<p>Phones, covers, chargers & more</p>
+</a>
+
+<a href="product.html" class="card">
+<div class="icon">🎧</div>
+<h2>Electronics</h2>
+<p>Headphones, gadgets & devices</p>
+</a>
+
+<a href="product.html" class="card">
+<div class="icon">👕</div>
+<h2>Fashion</h2>
+<p>Clothing & trending styles</p>
+</a>
+
+<a href="product.html" class="card">
+<div class="icon">👟</div>
+<h2>Shoes</h2>
+<p>Sports, casual & sneakers</p>
+</a>
+
+<a href="product.html" class="card">
+<div class="icon">🏠</div>
+<h2>Home & Kitchen</h2>
+<p>Home essentials & cookware</p>
+</a>
+
+<a href="product.html" class="card">
+<div class="icon">🎮</div>
+<h2>Gaming</h2>
+<p>Controllers, accessories & more</p>
+</a>
+
+<a href="product.html" class="card">
+<div class="icon">💄</div>
+<h2>Beauty</h2>
+<p>Beauty & personal care</p>
+</a>
+
+<a href="product.html" class="card">
+<div class="icon">⌚</div>
+<h2>Watches & Accessories</h2>
+<p>Watches, bags & accessories</p>
+</a>
+
+</div>
+
+</div>
+
+<footer>
+
+<h2>DealBrand</h2>
+<p>Everything you need. One marketplace.</p>
+
+</footer>
+
+</body>
+</html>
