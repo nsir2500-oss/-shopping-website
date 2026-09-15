@@ -4,162 +4,183 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>DealBrand - Product</title>
+<title>DealBrand - Product Details</title>
 
 <style>
 *{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-  font-family:Arial,sans-serif;
+box-sizing:border-box;
+margin:0;
+padding:0;
+font-family:Arial,sans-serif;
 }
 
 body{
-  background:#f5f5f5;
-  color:#111;
+background:#f5f5f5;
+color:#222;
 }
 
 header{
-  background:#131921;
-  color:white;
-  padding:14px 5%;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+background:#131921;
+color:white;
+padding:12px 5%;
+display:flex;
+align-items:center;
+gap:20px;
+flex-wrap:wrap;
 }
 
 .logo{
-  font-size:25px;
-  font-weight:bold;
+font-size:28px;
+font-weight:bold;
+color:#ffcc00;
+text-decoration:none;
 }
 
-.logo span{
-  color:#ffb000;
+.search{
+flex:1;
+min-width:220px;
 }
 
-.back{
-  background:#ffb000;
-  color:#111;
-  padding:10px 16px;
-  border-radius:6px;
-  text-decoration:none;
-  font-weight:bold;
+.search input{
+width:100%;
+padding:12px;
+border:0;
+font-size:15px;
+}
+
+.cart{
+color:white;
+text-decoration:none;
+font-weight:bold;
 }
 
 .container{
-  width:92%;
-  max-width:1000px;
-  margin:30px auto;
+max-width:1200px;
+margin:25px auto;
+padding:20px;
+background:white;
+border-radius:10px;
 }
 
-.product-box{
-  background:white;
-  border-radius:14px;
-  padding:25px;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:30px;
-  box-shadow:0 3px 12px #ddd;
+.product{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
 }
 
 .image{
-  min-height:350px;
-  background:#eeeeee;
-  border-radius:12px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:130px;
+height:450px;
+background:#f1f1f1;
+border-radius:10px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:170px;
 }
 
 .details h1{
-  font-size:30px;
-  margin-bottom:15px;
+font-size:30px;
+margin-bottom:15px;
 }
 
 .rating{
-  color:#f59e0b;
-  margin-bottom:18px;
-}
-
-.old{
-  color:#888;
-  text-decoration:line-through;
-  margin-bottom:5px;
+color:#f39c12;
+margin:12px 0;
 }
 
 .price{
-  font-size:32px;
-  font-weight:bold;
-  margin-bottom:8px;
+font-size:32px;
+font-weight:bold;
+color:#d35400;
+margin:15px 0;
 }
 
-.discount{
-  color:green;
-  font-weight:bold;
-  margin-bottom:20px;
+.old{
+color:#888;
+text-decoration:line-through;
+font-size:17px;
+margin-left:10px;
 }
 
-.description{
-  line-height:1.6;
-  color:#555;
-  margin-bottom:25px;
+.offer{
+background:#fff3cd;
+padding:15px;
+border-radius:8px;
+margin:20px 0;
 }
 
-.add{
-  width:100%;
-  padding:15px;
-  background:#ffb000;
-  border:0;
-  border-radius:8px;
-  font-size:17px;
-  font-weight:bold;
-  cursor:pointer;
+.quantity{
+display:flex;
+align-items:center;
+gap:15px;
+margin:20px 0;
 }
 
-.buy{
-  width:100%;
-  padding:15px;
-  background:#ff7a00;
-  color:white;
-  border:0;
-  border-radius:8px;
-  font-size:17px;
-  font-weight:bold;
-  cursor:pointer;
-  margin-top:10px;
+.quantity button{
+padding:8px 15px;
+font-size:20px;
+cursor:pointer;
 }
 
-.features{
-  margin-top:25px;
-  background:white;
-  padding:22px;
-  border-radius:12px;
-  box-shadow:0 2px 8px #ddd;
+.quantity span{
+font-size:20px;
 }
 
-.features h2{
-  margin-bottom:15px;
+.buttons{
+display:flex;
+gap:15px;
 }
 
-.features p{
-  margin:10px 0;
+.buttons button{
+flex:1;
+padding:15px;
+border:0;
+border-radius:7px;
+font-size:17px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.cartbtn{
+background:#ffd814;
+}
+
+.buybtn{
+background:#ff9900;
+}
+
+.info{
+margin-top:30px;
+border-top:1px solid #ddd;
+padding-top:20px;
+}
+
+.info h2{
+margin-bottom:15px;
+}
+
+.info p{
+margin:10px 0;
 }
 
 @media(max-width:700px){
 
-  .product-box{
-    grid-template-columns:1fr;
-  }
+.product{
+grid-template-columns:1fr;
+}
 
-  .image{
-    min-height:280px;
-    font-size:100px;
-  }
+.image{
+height:300px;
+font-size:120px;
+}
 
-  .details h1{
-    font-size:25px;
-  }
+.details h1{
+font-size:24px;
+}
+
+.buttons{
+flex-direction:column;
+}
 
 }
 </style>
@@ -169,111 +190,154 @@ header{
 
 <header>
 
-  <div class="logo">
-    Deal<span>Brand</span>
-  </div>
+<a href="index.html" class="logo">DealBrand</a>
 
-  <a class="back" href="index.html">
-    🏠 Home
-  </a>
+<div class="search">
+<input type="text" placeholder="Search DealBrand products...">
+</div>
+
+<a href="cart.html" class="cart">
+🛒 Cart
+</a>
 
 </header>
 
-
 <div class="container">
 
-  <div class="product-box">
+<div class="product">
 
-    <div class="image">
-      📱
-    </div>
+<div class="image">
+📱
+</div>
 
+<div class="details">
 
-    <div class="details">
+<h1>Smartphone Pro Max</h1>
 
-      <h1>DealBrand Smartphone Pro</h1>
+<div class="rating">
+★★★★★ 4.5/5
+</div>
 
-      <div class="rating">
-        ⭐⭐⭐⭐⭐ 4.7/5
-      </div>
+<p>1,245 ratings & 320 reviews</p>
 
-      <div class="old">
-        ₹19,999
-      </div>
+<div class="price">
+₹19,999
+<span class="old">₹24,999</span>
+</div>
 
-      <div class="price">
-        ₹14,999
-      </div>
+<div class="offer">
+🔥 <b>Special Deal</b><br>
+Save ₹5,000 on this product.
+</div>
 
-      <div class="discount">
-        🔥 25% OFF
-      </div>
+<p>🚚 <b>FREE Delivery</b></p>
 
-      <p class="description">
-        Experience powerful performance, stylish design
-        and an amazing display with the DealBrand
-        Smartphone Pro.
-      </p>
+<p>✅ In Stock</p>
 
-      <button class="add" onclick="addToCart()">
-        🛒 Add to Cart
-      </button>
+<div class="quantity">
 
-      <button class="buy" onclick="buyNow()">
-        ⚡ Buy Now
-      </button>
+<b>Quantity:</b>
 
-    </div>
+<button onclick="decrease()">−</button>
 
-  </div>
+<span id="qty">1</span>
 
-
-  <div class="features">
-
-    <h2>Product Features</h2>
-
-    <p>✅ High-quality display</p>
-    <p>✅ Powerful performance</p>
-    <p>✅ Long-lasting battery</p>
-    <p>✅ Premium design</p>
-    <p>✅ Fast delivery available</p>
-
-  </div>
+<button onclick="increase()">+</button>
 
 </div>
 
+<div class="buttons">
+
+<button class="cartbtn" onclick="addCart()">
+🛒 Add to Cart
+</button>
+
+<button class="buybtn" onclick="buyNow()">
+⚡ Buy Now
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="info">
+
+<h2>Product Details</h2>
+
+<p>📱 Premium smartphone with modern design.</p>
+
+<p>⚡ High-performance processor.</p>
+
+<p>📸 Advanced camera system.</p>
+
+<p>🔋 Long-lasting battery.</p>
+
+<p>💾 Multiple storage options.</p>
+
+<p>🛡️ 1 Year Brand Warranty.</p>
+
+</div>
+
+</div>
 
 <script>
 
-function addToCart(){
+let qty = 1;
 
-  let cart =
-    JSON.parse(localStorage.getItem("dealbrandCart")) || [];
+function increase(){
 
-  cart.push({
-    name:"DealBrand Smartphone Pro",
-    price:14999
-  });
+qty++;
 
-  localStorage.setItem(
-    "dealbrandCart",
-    JSON.stringify(cart)
-  );
-
-  alert("✅ Product added to cart!");
+document.getElementById("qty").innerText = qty;
 
 }
 
+function decrease(){
+
+if(qty > 1){
+
+qty--;
+
+}
+
+document.getElementById("qty").innerText = qty;
+
+}
+
+function addCart(){
+
+let cart =
+JSON.parse(localStorage.getItem("cart")) || [];
+
+for(let i=0;i<qty;i++){
+
+cart.push({
+name:"Smartphone Pro Max",
+price:19999
+});
+
+}
+
+localStorage.setItem(
+"cart",
+JSON.stringify(cart)
+);
+
+alert("Product added to cart!");
+
+}
 
 function buyNow(){
 
-  addToCart();
+addCart();
 
-  setTimeout(function(){
+setTimeout(function(){
 
-    window.location.href="cart.html";
+window.location.href="cart.html";
 
-  },300);
+},300);
 
 }
 
