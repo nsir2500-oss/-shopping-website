@@ -464,7 +464,33 @@ name.includes(value)?"block":"none";
 });
 
 }
+function addToWishlist(name,price,icon){
 
+let wishlist =
+JSON.parse(localStorage.getItem("wishlist")) || [];
+
+let exists =
+wishlist.some(item => item.name === name);
+
+if(exists){
+alert("Already in Wishlist ❤️");
+return;
+}
+
+wishlist.push({
+name:name,
+price:price,
+icon:icon
+});
+
+localStorage.setItem(
+"wishlist",
+JSON.stringify(wishlist)
+);
+
+alert("Added to Wishlist ❤️");
+
+}
 updateCount();
 
 </script>
