@@ -3,329 +3,406 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>DealBrand - Cart</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+font-family:Arial,sans-serif;
+}
 
 body{
-  background:#f5f5f5;
-  color:#111;
+background:#f5f5f5;
+color:#222;
 }
 
 header{
-  background:#131921;
-  color:white;
-  padding:15px 5%;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+background:#131921;
+padding:14px 5%;
+display:flex;
+align-items:center;
+justify-content:space-between;
 }
 
 .logo{
-  font-size:25px;
-  font-weight:bold;
-}
-
-.logo span{
-  color:#ffb000;
+font-size:28px;
+font-weight:bold;
+color:#ffcc00;
+text-decoration:none;
 }
 
 .home{
-  background:#ffb000;
-  color:#111;
-  padding:10px 16px;
-  border-radius:6px;
-  text-decoration:none;
-  font-weight:bold;
+color:white;
+text-decoration:none;
+font-size:15px;
 }
 
 .container{
-  width:92%;
-  max-width:1000px;
-  margin:25px auto;
+width:92%;
+max-width:1100px;
+margin:25px auto;
+}
+
+.cart-box{
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 2px 8px #ddd;
 }
 
 h1{
-  margin-bottom:20px;
+margin-bottom:20px;
 }
 
 .cart-item{
-  background:white;
-  padding:18px;
-  margin-bottom:12px;
-  border-radius:10px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:15px;
-  box-shadow:0 2px 8px #ddd;
+display:flex;
+align-items:center;
+gap:15px;
+padding:18px 0;
+border-bottom:1px solid #ddd;
+}
+
+.icon{
+font-size:45px;
+width:70px;
+text-align:center;
 }
 
 .info{
-  flex:1;
+flex:1;
 }
 
 .info h3{
-  margin-bottom:8px;
+margin-bottom:8px;
 }
 
 .price{
-  font-weight:bold;
-  font-size:18px;
+font-weight:bold;
+font-size:18px;
 }
 
-.controls{
-  display:flex;
-  align-items:center;
-  gap:8px;
+.quantity{
+display:flex;
+align-items:center;
+gap:8px;
+margin-top:10px;
 }
 
-.controls button{
-  width:35px;
-  height:35px;
-  border:0;
-  border-radius:5px;
-  background:#ddd;
-  font-size:18px;
-  cursor:pointer;
+.quantity button{
+width:32px;
+height:32px;
+border:1px solid #ccc;
+background:white;
+border-radius:5px;
+font-size:18px;
+cursor:pointer;
+}
+
+.quantity span{
+min-width:25px;
+text-align:center;
+font-weight:bold;
 }
 
 .remove{
-  background:#dc2626 !important;
-  color:white;
-  padding:9px 12px;
-  width:auto !important;
+background:#e53935;
+color:white;
+border:0;
+padding:9px 13px;
+border-radius:5px;
+cursor:pointer;
 }
 
 .summary{
-  background:white;
-  margin-top:20px;
-  padding:22px;
-  border-radius:10px;
-  box-shadow:0 2px 8px #ddd;
+margin-top:25px;
+padding-top:20px;
+border-top:2px solid #ddd;
+text-align:right;
 }
 
-.summary p{
-  font-size:18px;
-  margin-bottom:12px;
+.total{
+font-size:24px;
+font-weight:bold;
+margin-bottom:15px;
 }
 
 .checkout{
-  width:100%;
-  border:0;
-  background:#ffb000;
-  padding:14px;
-  border-radius:7px;
-  font-size:17px;
-  font-weight:bold;
-  cursor:pointer;
+display:inline-block;
+background:#ff9900;
+color:#111;
+padding:14px 30px;
+border-radius:7px;
+text-decoration:none;
+font-weight:bold;
+font-size:17px;
+}
+
+.continue{
+display:inline-block;
+margin-right:10px;
+padding:13px 22px;
+border:1px solid #ccc;
+border-radius:7px;
+text-decoration:none;
+color:#222;
+background:white;
 }
 
 .empty{
-  background:white;
-  text-align:center;
-  padding:50px 20px;
-  border-radius:10px;
+text-align:center;
+padding:50px 10px;
 }
 
-.shop{
-  display:inline-block;
-  margin-top:18px;
-  background:#2563eb;
-  color:white;
-  padding:12px 20px;
-  border-radius:6px;
-  text-decoration:none;
+.empty h2{
+margin-bottom:15px;
+}
+
+.empty a{
+display:inline-block;
+margin-top:15px;
+padding:12px 25px;
+background:#ff9900;
+color:#111;
+text-decoration:none;
+border-radius:7px;
+font-weight:bold;
 }
 
 @media(max-width:600px){
-  .cart-item{
-    flex-direction:column;
-    align-items:flex-start;
-  }
 
-  .controls{
-    width:100%;
-  }
+.cart-item{
+align-items:flex-start;
 }
+
+.icon{
+font-size:35px;
+width:50px;
+}
+
+.info h3{
+font-size:16px;
+}
+
+.price{
+font-size:16px;
+}
+
+.remove{
+padding:7px 9px;
+}
+
+.summary{
+text-align:center;
+}
+
+.continue,
+.checkout{
+display:block;
+width:100%;
+margin:8px 0;
+}
+
+}
+
 </style>
 </head>
 
 <body>
 
 <header>
-  <div class="logo">Deal<span>Brand</span></div>
-  <a class="home" href="index.html">🏠 Home</a>
+
+<a href="index.html" class="logo">
+DealBrand
+</a>
+
+<a href="index.html" class="home">
+🏠 Home
+</a>
+
 </header>
 
 <div class="container">
 
+<div class="cart-box">
+
 <h1>🛒 Your Cart</h1>
 
-<div id="cartBox"></div>
+<div id="cartContainer"></div>
+
+</div>
 
 </div>
 
 <script>
 
-let cart = JSON.parse(localStorage.getItem("dealbrandCart")) || [];
+let cart =
+JSON.parse(localStorage.getItem("cart")) || [];
 
-function saveCart(){
-  localStorage.setItem("dealbrandCart",JSON.stringify(cart));
+let container =
+document.getElementById("cartContainer");
+
+function showCart(){
+
+container.innerHTML="";
+
+if(cart.length === 0){
+
+container.innerHTML=`
+
+<div class="empty">
+
+<h2>Your cart is empty 🛒</h2>
+
+<p>Add some products to your cart.</p>
+
+<a href="index.html">
+Continue Shopping
+</a>
+
+</div>
+
+`;
+
+return;
+
+}
+
+let total=0;
+
+cart.forEach((item,index)=>{
+
+let price=Number(item.price) || 0;
+
+let quantity=Number(item.quantity) || 1;
+
+total += price * quantity;
+
+let div=document.createElement("div");
+
+div.className="cart-item";
+
+div.innerHTML=`
+
+<div class="icon">
+${item.icon || "🛍️"}
+</div>
+
+<div class="info">
+
+<h3>${item.name}</h3>
+
+<div class="price">
+₹${price.toLocaleString("en-IN")}
+</div>
+
+<div class="quantity">
+
+<button onclick="decrease(${index})">
+−
+</button>
+
+<span>
+${quantity}
+</span>
+
+<button onclick="increase(${index})">
++
+</button>
+
+</div>
+
+</div>
+
+<button
+class="remove"
+onclick="removeItem(${index})">
+Remove
+</button>
+
+`;
+
+container.appendChild(div);
+
+});
+
+let summary=document.createElement("div");
+
+summary.className="summary";
+
+summary.innerHTML=`
+
+<div class="total">
+Total: ₹${total.toLocaleString("en-IN")}
+</div>
+
+<a href="index.html" class="continue">
+← Continue Shopping
+</a>
+
+<a href="checkout.html" class="checkout">
+Proceed to Checkout →
+</a>
+
+`;
+
+container.appendChild(summary);
+
 }
 
 function increase(index){
-  cart.push({
-    name:cart[index].name,
-    price:cart[index].price
-  });
 
-  saveCart();
-  displayCart();
+cart[index].quantity =
+(Number(cart[index].quantity) || 1) + 1;
+
+saveCart();
+
 }
 
 function decrease(index){
 
-  const name = cart[index].name;
+let quantity =
+Number(cart[index].quantity) || 1;
 
-  const itemIndex = cart.findIndex(item => item.name === name);
+if(quantity > 1){
 
-  if(itemIndex !== -1){
-    cart.splice(itemIndex,1);
-  }
+cart[index].quantity =
+quantity - 1;
 
-  saveCart();
-  displayCart();
+}
+else{
+
+cart.splice(index,1);
+
 }
 
-function removeItem(name){
+saveCart();
 
-  cart = cart.filter(item => item.name !== name);
-
-  saveCart();
-  displayCart();
 }
 
-function checkout(){
+function removeItem(index){
 
-  if(cart.length === 0){
-    alert("Your cart is empty.");
-    return;
-  }
+cart.splice(index,1);
 
-  const total = cart.reduce(
-    (sum,item)=>sum + item.price,
-    0
-  );
+saveCart();
 
-  alert(
-    "🎉 Checkout Started!\n\n" +
-    "Total Amount: ₹" + total +
-    "\n\nPayment system will be connected next."
-  );
 }
 
-function displayCart(){
+function saveCart(){
 
-  const box = document.getElementById("cartBox");
+localStorage.setItem(
+"cart",
+JSON.stringify(cart)
+);
 
-  if(cart.length === 0){
+showCart();
 
-    box.innerHTML = `
-      <div class="empty">
-        <h2>Your cart is empty 🛒</h2>
-        <p>Add some products from DealBrand.</p>
-        <a class="shop" href="index.html">
-          Continue Shopping
-        </a>
-      </div>
-    `;
-
-    return;
-  }
-
-  const grouped = {};
-
-  cart.forEach(item => {
-
-    if(!grouped[item.name]){
-      grouped[item.name] = {
-        name:item.name,
-        price:item.price,
-        quantity:0
-      };
-    }
-
-    grouped[item.name].quantity++;
-  });
-
-  let html = "";
-
-  Object.values(grouped).forEach((item,index)=>{
-
-    html += `
-      <div class="cart-item">
-
-        <div class="info">
-          <h3>${item.name}</h3>
-          <div class="price">
-            ₹${item.price} × ${item.quantity}
-          </div>
-        </div>
-
-        <div class="controls">
-
-          <button onclick="decrease(${cart.findIndex(x=>x.name===item.name)})">
-            −
-          </button>
-
-          <strong>${item.quantity}</strong>
-
-          <button onclick="increase(${cart.findIndex(x=>x.name===item.name)})">
-            +
-          </button>
-
-          <button class="remove"
-          onclick="removeItem('${item.name}')">
-            Remove
-          </button>
-
-        </div>
-
-      </div>
-    `;
-  });
-
-  const total = cart.reduce(
-    (sum,item)=>sum + item.price,
-    0
-  );
-
-  html += `
-    <div class="summary">
-
-      <p>
-        <strong>Total Items:</strong>
-        ${cart.length}
-      </p>
-
-      <p>
-        <strong>Total:</strong>
-        ₹${total}
-      </p>
-
-      <button class="checkout" onclick="checkout()">
-        Proceed to Checkout →
-      </button>
-
-    </div>
-  `;
-
-  box.innerHTML = html;
 }
 
-displayCart();
+showCart();
 
 </script>
 
