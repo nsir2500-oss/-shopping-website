@@ -6,226 +6,130 @@
 <title>DealBrand - Shop Everything</title>
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-  font-family:Arial, sans-serif;
-}
-
-body{
-  background:#f5f5f5;
-  color:#222;
-}
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
+body{background:#f5f5f5;color:#222}
 
 header{
-  background:#131921;
-  color:white;
-  padding:12px 5%;
-  display:flex;
-  align-items:center;
-  gap:20px;
-  flex-wrap:wrap;
+background:#131921;color:white;padding:12px 5%;
+display:flex;align-items:center;gap:20px;flex-wrap:wrap
 }
 
-.logo{
-  font-size:28px;
-  font-weight:bold;
-  color:#ffcc00;
-  text-decoration:none;
-}
+.logo{font-size:28px;font-weight:bold;color:#ffcc00;text-decoration:none}
 
-.search{
-  flex:1;
-  min-width:220px;
-  display:flex;
-}
+.search{flex:1;min-width:220px;display:flex}
+.search input{width:100%;padding:12px;border:0;font-size:15px}
+.search button{padding:12px 18px;border:0;background:#ff9900}
 
-.search input{
-  width:100%;
-  padding:12px;
-  border:0;
-  font-size:15px;
-}
-
-.search button{
-  padding:12px 18px;
-  border:0;
-  background:#ff9900;
-  cursor:pointer;
-}
-
-.cart{
-  color:white;
-  text-decoration:none;
-  font-weight:bold;
-}
+.cart{color:white;text-decoration:none;font-weight:bold}
 
 nav{
-  background:#232f3e;
-  padding:12px 5%;
-  display:flex;
-  gap:25px;
-  overflow-x:auto;
+background:#232f3e;padding:12px 5%;display:flex;gap:25px;overflow-x:auto
 }
-
-nav a{
-  color:white;
-  text-decoration:none;
-  white-space:nowrap;
-}
+nav a{color:white;text-decoration:none;white-space:nowrap}
 
 .hero{
-  margin:20px 5%;
-  padding:55px 30px;
-  border-radius:12px;
-  background:linear-gradient(120deg,#111827,#2563eb);
-  color:white;
+margin:20px 5%;padding:55px 30px;border-radius:12px;
+background:linear-gradient(120deg,#111827,#2563eb);color:white
 }
-
-.hero h1{
-  font-size:42px;
-  margin-bottom:12px;
-}
-
-.hero p{
-  font-size:18px;
-  margin-bottom:20px;
-}
+.hero h1{font-size:42px;margin-bottom:12px}
+.hero p{font-size:18px;margin-bottom:20px}
 
 .shop-btn{
-  display:inline-block;
-  background:#ff9900;
-  color:#111;
-  padding:12px 22px;
-  border-radius:6px;
-  text-decoration:none;
-  font-weight:bold;
+display:inline-block;background:#ff9900;color:#111;
+padding:12px 22px;border-radius:6px;
+text-decoration:none;font-weight:bold
 }
 
-.section{
-  padding:10px 5%;
-}
-
-.section h2{
-  margin:20px 0;
-}
+.section{padding:10px 5%}
+.section h2{margin:20px 0}
 
 .categories{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
-  gap:15px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+gap:15px
 }
 
 .category{
-  background:white;
-  padding:25px 10px;
-  text-align:center;
-  border-radius:10px;
-  cursor:pointer;
-  box-shadow:0 2px 7px #ddd;
+background:white;padding:25px 10px;text-align:center;
+border-radius:10px;box-shadow:0 2px 7px #ddd
 }
 
-.category .icon{
-  font-size:40px;
-  margin-bottom:10px;
-}
+.icon{font-size:40px;margin-bottom:10px}
 
 .products{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
-  gap:18px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+gap:18px
 }
 
 .product{
-  background:white;
-  padding:15px;
-  border-radius:10px;
-  box-shadow:0 2px 8px #ddd;
-  transition:.2s;
+background:white;padding:15px;border-radius:10px;
+box-shadow:0 2px 8px #ddd
 }
 
-.product:hover{
-  transform:translateY(-4px);
+.product-link{
+text-decoration:none;
+color:#222;
+display:block
 }
 
 .product-img{
-  height:170px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:#f1f1f1;
-  border-radius:8px;
-  font-size:75px;
-  margin-bottom:12px;
+height:170px;
+display:flex;
+align-items:center;
+justify-content:center;
+background:#f1f1f1;
+border-radius:8px;
+font-size:75px;
+margin-bottom:12px
 }
 
-.product h3{
-  font-size:17px;
-  margin-bottom:8px;
-}
+.product h3{font-size:17px;margin-bottom:8px}
+.rating{color:#f39c12;margin:7px 0}
 
 .price{
-  font-size:20px;
-  font-weight:bold;
-  color:#d35400;
+font-size:20px;
+font-weight:bold;
+color:#d35400
 }
 
 .old-price{
-  color:#888;
-  text-decoration:line-through;
-  margin-left:7px;
-  font-size:14px;
-}
-
-.rating{
-  color:#f39c12;
-  margin:7px 0;
+color:#888;
+text-decoration:line-through;
+margin-left:7px;
+font-size:14px
 }
 
 .product button{
-  width:100%;
-  padding:10px;
-  border:0;
-  border-radius:6px;
-  cursor:pointer;
-  background:#ffd814;
-  margin-top:8px;
-  font-weight:bold;
+width:100%;
+padding:10px;
+border:0;
+border-radius:6px;
+cursor:pointer;
+background:#ffd814;
+margin-top:8px;
+font-weight:bold
 }
 
 .deals{
-  background:#fff3cd;
-  padding:20px;
-  border-radius:10px;
-  margin-top:20px;
+background:#fff3cd;
+padding:20px;
+border-radius:10px;
+margin-top:20px
 }
 
 footer{
-  margin-top:40px;
-  background:#131921;
-  color:white;
-  padding:35px 5%;
-  text-align:center;
+margin-top:40px;
+background:#131921;
+color:white;
+padding:35px 5%;
+text-align:center
 }
 
 @media(max-width:600px){
-  header{
-    padding:10px 3%;
-  }
-
-  .hero{
-    margin:15px 3%;
-    padding:35px 20px;
-  }
-
-  .hero h1{
-    font-size:30px;
-  }
-
-  .section{
-    padding:10px 3%;
-  }
+.hero{margin:15px 3%;padding:35px 20px}
+.hero h1{font-size:30px}
+.section{padding:10px 3%}
 }
 </style>
 </head>
@@ -237,7 +141,8 @@ footer{
 <a href="index.html" class="logo">DealBrand</a>
 
 <div class="search">
-<input id="searchInput" type="text" placeholder="Search products, brands and categories...">
+<input id="searchInput" type="text"
+placeholder="Search products, brands and categories...">
 <button onclick="searchProducts()">🔍</button>
 </div>
 
@@ -328,75 +233,178 @@ footer{
 <div class="products">
 
 <div class="product">
+
+<a href="product.html" class="product-link">
+
 <div class="product-img">📱</div>
+
 <h3>Smartphone Pro Max</h3>
+
 <div class="rating">★★★★★</div>
+
 <span class="price">₹19,999</span>
 <span class="old-price">₹24,999</span>
-<button onclick="addToCart('Smartphone Pro Max',19999)">🛒 Add to Cart</button>
+
+</a>
+
+<button onclick="addToCart('Smartphone Pro Max',19999)">
+🛒 Add to Cart
+</button>
+
 </div>
 
+
 <div class="product">
+
+<a href="product.html" class="product-link">
+
 <div class="product-img">🎧</div>
+
 <h3>Wireless Bluetooth Headphones</h3>
+
 <div class="rating">★★★★☆</div>
+
 <span class="price">₹1,499</span>
 <span class="old-price">₹2,499</span>
-<button onclick="addToCart('Wireless Bluetooth Headphones',1499)">🛒 Add to Cart</button>
+
+</a>
+
+<button onclick="addToCart('Wireless Bluetooth Headphones',1499)">
+🛒 Add to Cart
+</button>
+
 </div>
 
+
 <div class="product">
+
+<a href="product.html" class="product-link">
+
 <div class="product-img">👕</div>
+
 <h3>Premium Casual T-Shirt</h3>
+
 <div class="rating">★★★★★</div>
+
 <span class="price">₹599</span>
 <span class="old-price">₹999</span>
-<button onclick="addToCart('Premium Casual T-Shirt',599)">🛒 Add to Cart</button>
+
+</a>
+
+<button onclick="addToCart('Premium Casual T-Shirt',599)">
+🛒 Add to Cart
+</button>
+
 </div>
 
+
 <div class="product">
+
+<a href="product.html" class="product-link">
+
 <div class="product-img">👟</div>
+
 <h3>Sports Running Shoes</h3>
+
 <div class="rating">★★★★☆</div>
+
 <span class="price">₹1,299</span>
 <span class="old-price">₹2,499</span>
-<button onclick="addToCart('Sports Running Shoes',1299)">🛒 Add to Cart</button>
+
+</a>
+
+<button onclick="addToCart('Sports Running Shoes',1299)">
+🛒 Add to Cart
+</button>
+
 </div>
 
+
 <div class="product">
+
+<a href="product.html" class="product-link">
+
 <div class="product-img">⌚</div>
+
 <h3>Smart Watch Series X</h3>
+
 <div class="rating">★★★★★</div>
+
 <span class="price">₹1,999</span>
 <span class="old-price">₹3,499</span>
-<button onclick="addToCart('Smart Watch Series X',1999)">🛒 Add to Cart</button>
+
+</a>
+
+<button onclick="addToCart('Smart Watch Series X',1999)">
+🛒 Add to Cart
+</button>
+
 </div>
 
+
 <div class="product">
+
+<a href="product.html" class="product-link">
+
 <div class="product-img">🎮</div>
+
 <h3>Gaming Controller</h3>
+
 <div class="rating">★★★★☆</div>
+
 <span class="price">₹1,799</span>
 <span class="old-price">₹2,999</span>
-<button onclick="addToCart('Gaming Controller',1799)">🛒 Add to Cart</button>
+
+</a>
+
+<button onclick="addToCart('Gaming Controller',1799)">
+🛒 Add to Cart
+</button>
+
 </div>
 
+
 <div class="product">
+
+<a href="product.html" class="product-link">
+
 <div class="product-img">🍳</div>
+
 <h3>Non-Stick Cookware Set</h3>
+
 <div class="rating">★★★★☆</div>
+
 <span class="price">₹1,099</span>
 <span class="old-price">₹1,999</span>
-<button onclick="addToCart('Non-Stick Cookware Set',1099)">🛒 Add to Cart</button>
+
+</a>
+
+<button onclick="addToCart('Non-Stick Cookware Set',1099)">
+🛒 Add to Cart
+</button>
+
 </div>
 
+
 <div class="product">
+
+<a href="product.html" class="product-link">
+
 <div class="product-img">💄</div>
+
 <h3>Beauty Essentials Kit</h3>
+
 <div class="rating">★★★★★</div>
+
 <span class="price">₹799</span>
 <span class="old-price">₹1,299</span>
-<button onclick="addToCart('Beauty Essentials Kit',799)">🛒 Add to Cart</button>
+
+</a>
+
+<button onclick="addToCart('Beauty Essentials Kit',799)">
+🛒 Add to Cart
+</button>
+
 </div>
 
 </div>
@@ -416,43 +424,44 @@ footer{
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 function updateCount(){
-  document.getElementById("count").innerText = cart.length;
+document.getElementById("count").innerText=cart.length;
 }
 
 function addToCart(name,price){
 
-  cart.push({
-    name:name,
-    price:price
-  });
+cart.push({
+name:name,
+price:price
+});
 
-  localStorage.setItem("cart",JSON.stringify(cart));
+localStorage.setItem("cart",JSON.stringify(cart));
 
-  updateCount();
+updateCount();
 
-  alert(name + " added to cart!");
+alert(name+" added to cart!");
+
 }
 
 function searchProducts(){
 
-  let value = document
-    .getElementById("searchInput")
-    .value
-    .toLowerCase();
+let value=document
+.getElementById("searchInput")
+.value
+.toLowerCase();
 
-  let products = document.querySelectorAll(".product");
+let products=document.querySelectorAll(".product");
 
-  products.forEach(product => {
+products.forEach(product=>{
 
-    let name = product
-      .querySelector("h3")
-      .innerText
-      .toLowerCase();
+let name=product
+.querySelector("h3")
+.innerText
+.toLowerCase();
 
-    product.style.display =
-      name.includes(value) ? "block" : "none";
+product.style.display=
+name.includes(value)?"block":"none";
 
-  });
+});
 
 }
 
